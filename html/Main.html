@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tale</title>
+
+    <style>
+        @font-face {
+            font-family: 'SeoulNamsanCL';
+            src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: auto 0;
+            background: #070E20; text-align: center;
+            display: flex;
+            overflow-y: hidden;
+        }
+
+        header{
+            width: 60%;
+            height: 140px;
+            margin: auto 0;
+            position: absolute; left: 50%; transform: translateX(-50%);
+        }
+        div{
+            width: 60%;
+            color : #ffffff;
+            margin: auto 0;
+            top:186px;
+            bottom: 0;
+            position: absolute; left: 50%; transform: translateX(-50%);
+        }
+        p {
+            color : #ffffff;
+            font-size : 25px;
+            font-family: SeoulNamsanCL;
+        }
+
+
+        #menu{margin-top: 78px; margin-left: 20px; float: left;}
+        #save{margin-top: 84px; margin-right: 20px; float: right;}
+        #logo{float: left; margin-left: 50px;}
+        #change_question{float: right; color: #FFFFFF; font-family: SeoulNamsanCL; font-size: 20pt; margin-right: 50px; margin-top: 70px; }
+        #context{background: #FFFFFF; width: 100%; height: 100%; margin-top: 10px;}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="../img/menu_btn.png" id="menu" width="50px" height="50px"/>
+        <img src="../img/save_btn.png" id="save" width="125px" height="40px"/>
+    </header>
+    <div>
+        <img src="../img/big_fox_img.png" id="logo" width="126px" height="102px"/>
+        <a id="change_question" href="">다른 질문을 보여줘!</a>
+        <div id="context"></div>
+    </div>
+
+
+
+</body>
+</html>

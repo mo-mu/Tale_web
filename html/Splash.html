@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Tale</title>
+
+    <style>
+        @font-face {
+            font-family: 'SeoulNamsanCL';
+            src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');
+        }
+
+        html, body{
+            width: 100%;
+            height: 100%;
+            margin: auto 0;
+            background: #070E20;
+        }
+        p {
+            color : #ffffff;
+            font-size:30pt;
+            font-family: SeoulNamsan CB Regular;}
+        .para{
+            width: 100%; height: 100%; top:0; left:0; text-align:center; position:absolute;
+        }
+        .para  .context{display:inline-block;vertical-align:middle; text-align:center;}
+        .para .blank{display:inline-block;width:0;height:100%;vertical-align:middle;}
+    </style>
+
+    <script language="javascript">
+
+        function window_onload(){
+            setTimeout('go_url()',5000)  // 5초후 go_url() 함수를 호출한다.
+
+        }
+
+        function go_url(){
+            location.href="Login.html"  // 페이지 이동...
+        }
+    </script>
+</head>
+<body onload="javascript:window_onload()">
+    <div class="para">
+        <span class="context">
+        <p>"네가 오후 네 시에 온다면 <br>
+            난 세 시부터 행복해지기 시작할거야"</p>
+
+        </span>
+        <span class="blank"></span>
+    </div>
+</body>
+</html>
