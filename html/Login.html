@@ -4,58 +4,19 @@
     <meta charset="UTF-8">
     <title>Tale</title>
     <style>
-        @font-face {
-            font-family: 'SeoulNamsanCL';
-            src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');
-        }
+        @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: auto 0;
-            background: #070E20;
-        }
+        html, body {width: 100%; height: 100%; margin: auto 0; background: #070E20;}
+        p {color : #ffffff; font-size : 25px; font-family: SeoulNamsanCL;}
+        a {color : #2bdaaf; font-size : 25px; font-family: SeoulNamsanCL;}
 
 
-        p {
-            color : #ffffff;
-            font-size : 25px;
-            font-family: SeoulNamsanCL;
-        }
-
-
-        #title{
-            margin-bottom: 60px;
-        }
-        #start_a{
-            text-decoration: none;
-        }
-        #start{
-            display:table;
-            border-radius: 28px;
-            width: 286px;
-            height: 56px;
-            text-align:center;
-            vertical-align:middle;
-            background: #2bdaaf;
-            margin:0 auto;
-        }
-        #start_txt {
-            display:table-cell; text-align:center; vertical-align:middle;
-        }
-        #member{
-            display: inline;
-            margin-right: 16px;
-        }
-        #login{
-            color: #2bdaaf;
-            font-size : 25px;
-        }
-        #sub{
-            font-size : 18px;
-        }
-
-
+        #title{margin-bottom: 60px;}
+        #start_a{text-decoration: none;}
+        #start{display:table; border-radius: 28px; width: 286px; height: 56px; text-align:center; vertical-align:middle; background: #2bdaaf; margin:0 auto;}
+        #start_txt {display:table-cell; text-align:center; vertical-align:middle;}
+        #member{display: inline; margin-right: 16px;}
+        #sub{font-size : 18px;}
         #img2{ margin-left: 22px; display: inline-block;}
         #img1{float:left;}
 
@@ -67,12 +28,9 @@
     </style>
 </head>
 <body>
-
     <div class="para">
         <span class="context">
-            <p id="title">
-                매일 새로운 질문을 통해 '나'를 되돌아 보세요.
-            </p>
+            <p id="title">매일 새로운 질문을 통해 '나'를 되돌아 보세요.</p>
 
             <a id="start_a" href="SignUp.html">
                 <div id="start">
@@ -84,6 +42,7 @@
                 <p id="member">이미 회원이신가요?</p>
                 <a href="" id="login">로그인</a>
             </div>
+
             <div class="another">
                 <p id="sub">앱으로도 만나보세요.</p>
                 <div id="img1"><a href=""><img src="../img/apple_img.png" height="70px" width="215px"></a></div>
@@ -93,6 +52,5 @@
 
         <span class="blank"></span>
     </div>
-
 </body>
 </html>

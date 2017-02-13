@@ -1,43 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Tale</title>
 
     <style>
-        @font-face {
-            font-family: 'SeoulNamsanCL';
-            src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');
-        }
+        @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: auto 0;
-            background: #070E20;
-        }
-
-        p {
-            color : #ffffff;
-            font-size : 25px;
-            font-family: SeoulNamsanCL;
-        }
-        input {
-            width: 430px;
-            height: 60px;
-            border-radius: 30px;
-            margin-bottom: 46px;
-            font-family: SeoulNamsanCL;
-            font-size: 20pt;
-        }
+        html, body {width: 100%; height: 100%; margin: auto 0; background: #070E20;}
+        p {color : #ffffff; font-size : 25px; font-family: SeoulNamsanCL;}
+        input {width: 430px; height: 60px; border-radius: 30px; margin-bottom: 46px; font-family: SeoulNamsanCL; font-size: 20pt;}
 
         #edit_last{margin-bottom: 70px;}
-        #submit{
-            background: #2bdaaf;
-            border-color: #2bdaaf;
-            width: 286px;
-            height: 56px; font-size: 25pt; color: #FFFFFF;
-        }
+        #submit{background: #2bdaaf; border-color: #2bdaaf; width: 286px; height: 56px; font-size: 25pt; color: #FFFFFF;}
 
         .edit_title{font-size: 17pt; text-align:left;margin-bottom: 16px; margin-top: 46px; margin-left: 20px;}
         .edit{background: #070E20; border-color: #FFFFFF; color:#ffffff; padding-left: 30px;}
@@ -51,14 +26,15 @@
         <div class="context">
             <p>아래 정보를 입력하고, 3초 만에 가입하세요.</p>
 
-        <form action="Main.html">
-            <p class="edit_title">이메일</p> <input class="edit" type="email" name="email"><br>
-            <p class="edit_title">비밀번호</p> <input class="edit" type="password" name="password"><br>
-            <p class="edit_title">닉네임</p> <input class="edit" id="edit_last" type="text" name="nickname"><br>
-            <input id="submit" type="submit" value="회원가입">
-        </form>
+            <form action="Main.html" >
+                <p class="edit_title">이메일</p> <input class="edit" type="email" name="email"><br>
+                <p class="edit_title">비밀번호</p> <input class="edit" type="password" name="password"><br>
+                <p class="edit_title">닉네임</p> <input class="edit" id="edit_last" type="text" name="nickname"><br>
+                <input id="submit" type="submit" value="회원가입">
+            </form>
 
         </div>
+
         <div class="blank"></div>
     </div>
 </body>
