@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Tale</title>
+
 
     <style>
         @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
@@ -11,7 +12,6 @@
         p {color : #ffffff; font-size : 25px; font-family: SeoulNamsanCL;}
         input {width: 430px; height: 60px; border-radius: 30px; margin-bottom: 46px; font-family: SeoulNamsanCL; font-size: 20pt;}
 
-        #nickname{margin-bottom: 70px;}
         #submit{background: #2bdaaf; border-color: #2bdaaf; width: 286px; height: 56px; font-size: 25pt; color: #FFFFFF;}
 
         .edit_title{font-size: 17pt; text-align:left;margin-bottom: 16px; margin-top: 46px; margin-left: 20px;}
@@ -21,14 +21,12 @@
         .para .blank{display:inline-block;width:0;height:100%;vertical-align:middle;}
     </style>
 
-
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         // Initialize Firebase
         // TODO: Replace with your project's customized code snippet
@@ -41,45 +39,42 @@
         };
         firebase.initializeApp(config);
 
+        const btnLogin = document.getElementById('submit');
+        btnLogin.addEventListener('click',  function () {
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+            alert(email.value +" : "+ password.value);
+            firebase.auth().signInWithEmailAndPassword(email.value, password.value).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorCode +" : "+ errorMessage);
+                // ...
+            });
+
+            location.href="Main.html";
+        });
+
+        function aaa () {
 
 
-         function aaa () {
-             var email = document.getElementById("email");
-             var password = document.getElementById("password");
-             var nickname = document.getElementById("nickname");
-
-             var isSignUped = true;
-             const auth = firebase.auth();
-             auth.createUserWithEmailAndPassword(email.value, password.value).catch(function(error) {
-                 // Handle Errors here.
-                 var errorCode = error.code;
-                 var errorMessage = error.message;
-                 isSignUped=false;
-                 alert(errorCode +" : "+errorMessage);
-                 // ...
-             });
-             if(isSignUped){
-                location.href="Main.html";
-             }
         }
-
     </script>
 </head>
 <body>
-    <div class="para">
-        <div class="context">
-            <p>아래 정보를 입력하고, 3초 만에 가입하세요.</p>
+<div class="para">
+    <div class="context">
+        <p>로그인</p>
 
-            <div>
-                <p class="edit_title">이메일</p> <input class="edit" type="email" id="email"><br>
-                <p class="edit_title">비밀번호</p> <input class="edit" type="password" id="password"><br>
-                <p class="edit_title">닉네임</p> <input class="edit" id="nickname" type="text"><br>
-                <button id="submit"  value="회원가입" onclick="aaa();">
-            </div>
-
+        <div action="Main.html" >
+            <p class="edit_title">이메일</p> <input class="edit" type="email" id="email"><br>
+            <p class="edit_title">비밀번호</p> <input class="edit" type="password"  id="password"><br>
+             <button id="submit" type="button" value="로그인" onclick="aaa();">
         </div>
 
-        <div class="blank"></div>
     </div>
+
+    <div class="blank"></div>
+</div>
 </body>
 </html>
