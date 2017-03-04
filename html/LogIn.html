@@ -12,7 +12,7 @@
         p {color : #ffffff; font-size : 25px; font-family: SeoulNamsanCL;}
         input {width: 430px; height: 60px; border-radius: 30px; margin-bottom: 46px; font-family: SeoulNamsanCL; font-size: 20pt;}
 
-        #submit{background: #2bdaaf; border-color: #2bdaaf; width: 286px; height: 56px; font-size: 25pt; color: #FFFFFF;}
+        #btnLogin{background: #2bdaaf; border-color: #2bdaaf; width: 286px; height: 56px; font-size: 25pt; font-family: SeoulNamsanCL; color: #FFFFFF;  border-radius: 30px; margin-bottom: 46px; font-family: SeoulNamsanCL; font-size: 20pt;}
 
         .edit_title{font-size: 17pt; text-align:left;margin-bottom: 16px; margin-top: 46px; margin-left: 20px;}
         .edit{background: #070E20; border-color: #FFFFFF; color:#ffffff; padding-left: 30px;}
@@ -28,48 +28,44 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
 
     <script>
-        // Initialize Firebase
-        // TODO: Replace with your project's customized code snippet
-        var config = {
-            apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
-            authDomain: "tale-97db4.firebaseapp.com",
-            databaseURL: "https://tale-97db4.firebaseio.com",
-            storageBucket: "tale-97db4.appspot.com",
-            messagingSenderId: "995377513212"
-        };
-        firebase.initializeApp(config);
+        window.onload = function () {
+            // Initialize Firebase
+            // TODO: Replace with your project's customized code snippet
+            var config = {
+                apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
+                authDomain: "tale-97db4.firebaseapp.com",
+                databaseURL: "https://tale-97db4.firebaseio.com",
+                storageBucket: "tale-97db4.appspot.com",
+                messagingSenderId: "995377513212"
+            };
+            firebase.initializeApp(config);
 
-        const btnLogin = document.getElementById('submit');
-        btnLogin.addEventListener('click',  function () {
-            var email = document.getElementById('email');
-            var password = document.getElementById('password');
-            alert(email.value +" : "+ password.value);
-            firebase.auth().signInWithEmailAndPassword(email.value, password.value).catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                alert(errorCode +" : "+ errorMessage);
-                // ...
+            const btnLogin = document.getElementById('btnLogin');
+            document.getElementById("btnLogin").addEventListener("click", function () {
+                var email = document.getElementById('email');
+                var password = document.getElementById('password');
+                firebase.auth().signInWithEmailAndPassword(email.value, password.value).catch(function (error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    alert(errorCode + " : " + errorMessage);
+                    // ...
+                });
+                location.href = "Main.html";
             });
-
-            location.href="Main.html";
-        });
-
-        function aaa () {
-
-
         }
     </script>
+
 </head>
 <body>
 <div class="para">
     <div class="context">
         <p>로그인</p>
 
-        <div action="Main.html" >
+        <div>
             <p class="edit_title">이메일</p> <input class="edit" type="email" id="email"><br>
-            <p class="edit_title">비밀번호</p> <input class="edit" type="password"  id="password"><br>
-             <button id="submit" type="button" value="로그인" onclick="aaa();">
+            <p class="edit_title">비밀번1호</p> <input class="edit" type="password"  id="password"><br>
+            <button id="btnLogin" type="button">로그인</button>
         </div>
 
     </div>

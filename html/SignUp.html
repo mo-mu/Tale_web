@@ -12,7 +12,7 @@
         input {width: 430px; height: 60px; border-radius: 30px; margin-bottom: 46px; font-family: SeoulNamsanCL; font-size: 20pt;}
 
         #nickname{margin-bottom: 70px;}
-        #submit{background: #2bdaaf; border-color: #2bdaaf; width: 286px; height: 56px; font-size: 25pt; color: #FFFFFF;}
+        #btnSubmit{background: #2bdaaf; border-color: #2bdaaf; border-radius: 30px; width: 286px; height: 56px; font-family: SeoulNamsanCL; font-size: 25pt; color: #FFFFFF;}
 
         .edit_title{font-size: 17pt; text-align:left;margin-bottom: 16px; margin-top: 46px; margin-left: 20px;}
         .edit{background: #070E20; border-color: #FFFFFF; color:#ffffff; padding-left: 30px;}
@@ -40,27 +40,36 @@
             messagingSenderId: "995377513212"
         };
         firebase.initializeApp(config);
+        window.onload = function () {
+            var btnSubmit = document.getElementById("btnSubmit");
+            btnSubmit.addEventListener("click", function () {
+                var editEmail = document.getElementById("email");
+                var editPassword = document.getElementById("password");
+                var editNickname = document.getElementById("nickname");
 
+                var isSignUped = true;
+                const auth = firebase.auth();
+                auth.createUserWithEmailAndPassword(editEmail.value, editPassword.value).catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    isSignUped=false;
+                    alert(errorCode +" : "+errorMessage);
+                    // ...
+                });
+                if(isSignUped){
+                    var user = {
+                        email : editEmail.value,
+                        nickname : editNickname.value
+                    };
+                    var updateInfo = {};
+                    updateInfo['/user/'+firebase.auth().currentUser.uid] = user;
+                    firebase.database().ref().update(updateInfo);
+                    alert(firebase.auth().currentUser.uid);
+                    location.href="Main.html";
+                }
+            });
 
-
-         function aaa () {
-             var email = document.getElementById("email");
-             var password = document.getElementById("password");
-             var nickname = document.getElementById("nickname");
-
-             var isSignUped = true;
-             const auth = firebase.auth();
-             auth.createUserWithEmailAndPassword(email.value, password.value).catch(function(error) {
-                 // Handle Errors here.
-                 var errorCode = error.code;
-                 var errorMessage = error.message;
-                 isSignUped=false;
-                 alert(errorCode +" : "+errorMessage);
-                 // ...
-             });
-             if(isSignUped){
-                location.href="Main.html";
-             }
         }
 
     </script>
@@ -74,7 +83,7 @@
                 <p class="edit_title">이메일</p> <input class="edit" type="email" id="email"><br>
                 <p class="edit_title">비밀번호</p> <input class="edit" type="password" id="password"><br>
                 <p class="edit_title">닉네임</p> <input class="edit" id="nickname" type="text"><br>
-                <button id="submit"  value="회원가입" onclick="aaa();">
+                <button id="btnSubmit">회원가입</button>
             </div>
 
         </div>
