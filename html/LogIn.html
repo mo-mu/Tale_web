@@ -44,20 +44,18 @@
             document.getElementById("btnLogin").addEventListener("click", function () {
                 var email = document.getElementById('email');
                 var password = document.getElementById('password');
-
-                alert("nopooe!");
-                firebase.auth().signInWithEmailAndPassword(email.value, password.value).catch(function (error) {
+                firebase.auth().signInWithEmailAndPassword(email.value, password.value).then(
+                    function () {
+                        location.href="Main.html"  // 페이지 이동...
+                    }
+                ).catch(function (error) {
                     // Handle Errors here.
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     alert(errorCode + " : " + errorMessage);
                     // ...
                 });
-                var curUser = firebase.auth().currentUser;
-                if(curUser)
-                    location.href = "Main.html";
-                else
-                    alert("nope!");
+
             });
         }
     </script>
