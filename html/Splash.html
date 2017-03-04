@@ -16,15 +16,33 @@
     </style>
 
 
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script language="javascript">
-
         $(document).ready(function(){
 
+            var config = {
+                apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
+                authDomain: "tale-97db4.firebaseapp.com",
+                databaseURL: "https://tale-97db4.firebaseio.com",
+                storageBucket: "tale-97db4.appspot.com",
+                messagingSenderId: "995377513212"
+            };
+            firebase.initializeApp(config);
+
+            var user = firebase.auth().currentUser;
             $("p").fadeOut(2000,function () {
-                location.href="Preview.html"  // 페이지 이동...
-                }
-            );
+                if(user)    //로그인 돼있을 때
+                    location.href="Main.html"  // 페이지 이동...
+
+                else        //로그인 안돼있을 때
+                    location.href="Preview.html"  // 페이지 이동
+            });
 
         });
     </script>

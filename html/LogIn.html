@@ -44,6 +44,8 @@
             document.getElementById("btnLogin").addEventListener("click", function () {
                 var email = document.getElementById('email');
                 var password = document.getElementById('password');
+
+                alert("nopooe!");
                 firebase.auth().signInWithEmailAndPassword(email.value, password.value).catch(function (error) {
                     // Handle Errors here.
                     var errorCode = error.code;
@@ -51,7 +53,11 @@
                     alert(errorCode + " : " + errorMessage);
                     // ...
                 });
-                location.href = "Main.html";
+                var curUser = firebase.auth().currentUser;
+                if(curUser)
+                    location.href = "Main.html";
+                else
+                    alert("nope!");
             });
         }
     </script>
@@ -64,7 +70,7 @@
 
         <div>
             <p class="edit_title">이메일</p> <input class="edit" type="email" id="email"><br>
-            <p class="edit_title">비밀번1호</p> <input class="edit" type="password"  id="password"><br>
+            <p class="edit_title">비밀번호</p> <input class="edit" type="password"  id="password"><br>
             <button id="btnLogin" type="button">로그인</button>
         </div>
 
