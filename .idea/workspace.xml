@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fb35cab-b6a8-4852-8d0c-87bb4ec04989" name="Default" comment="">
+    <list default="true" id="0fb35cab-b6a8-4852-8d0c-87bb4ec04989" name="Default" comment="side navigator추가">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/Main.html" afterPath="$PROJECT_DIR$/html/Main.html" />
     </list>
     <ignored path="$PROJECT_DIR$/../untitled/.tmp/" />
     <ignored path="$PROJECT_DIR$/../untitled/temp/" />
@@ -23,8 +24,8 @@
       <file leaf-file-name="Main.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/Main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="184" column="10" lean-forward="true" selection-start-line="184" selection-start-column="10" selection-end-line="184" selection-end-column="10" />
+            <state relative-caret-position="350">
+              <caret line="179" column="57" lean-forward="false" selection-start-line="179" selection-start-column="57" selection-end-line="179" selection-end-column="57" />
               <folding>
                 <element signature="e#7250#7257#0" expanded="true" />
               </folding>
@@ -361,7 +362,7 @@
       <workItem from="1487426616156" duration="10332000" />
       <workItem from="1487929061851" duration="14862000" />
       <workItem from="1487996261365" duration="5410000" />
-      <workItem from="1488601275217" duration="2967000" />
+      <workItem from="1488601275217" duration="3195000" />
     </task>
     <task id="LOCAL-00001" summary="0. firebase적용중.">
       <created>1488604192809</created>
@@ -370,11 +371,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488604192809</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="side navigator 추가">
+      <created>1488604333557</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1488604333557</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70084000" />
+    <option name="totallyTimeSpent" value="70312000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -424,7 +432,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="0. firebase적용중." />
-    <option name="LAST_COMMIT_MESSAGE" value="0. firebase적용중." />
+    <MESSAGE value="side navigator 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="side navigator 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -773,8 +782,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/Main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="184" column="10" lean-forward="true" selection-start-line="184" selection-start-column="10" selection-end-line="184" selection-end-column="10" />
+        <state relative-caret-position="350">
+          <caret line="179" column="57" lean-forward="false" selection-start-line="179" selection-start-column="57" selection-end-line="179" selection-end-column="57" />
           <folding>
             <element signature="e#7250#7257#0" expanded="true" />
           </folding>
