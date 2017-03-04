@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0fb35cab-b6a8-4852-8d0c-87bb4ec04989" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/Main.html" afterPath="$PROJECT_DIR$/html/Main.html" />
     </list>
     <ignored path="$PROJECT_DIR$/../untitled/.tmp/" />
     <ignored path="$PROJECT_DIR$/../untitled/temp/" />
@@ -24,7 +23,7 @@
       <file leaf-file-name="Main.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/Main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
+            <state relative-caret-position="475">
               <caret line="184" column="10" lean-forward="true" selection-start-line="184" selection-start-column="10" selection-end-line="184" selection-end-column="10" />
               <folding>
                 <element signature="e#7250#7257#0" expanded="true" />
@@ -362,12 +361,20 @@
       <workItem from="1487426616156" duration="10332000" />
       <workItem from="1487929061851" duration="14862000" />
       <workItem from="1487996261365" duration="5410000" />
-      <workItem from="1488601275217" duration="2905000" />
+      <workItem from="1488601275217" duration="2967000" />
     </task>
+    <task id="LOCAL-00001" summary="0. firebase적용중.">
+      <created>1488604192809</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1488604192809</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70022000" />
+    <option name="totallyTimeSpent" value="70084000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -766,7 +773,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/Main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
+        <state relative-caret-position="475">
           <caret line="184" column="10" lean-forward="true" selection-start-line="184" selection-start-column="10" selection-end-line="184" selection-end-column="10" />
           <folding>
             <element signature="e#7250#7257#0" expanded="true" />
