@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Tale</title>
+
+    <style>
+        @font-face {font-family: 'YanoljaYacheRegular'; src: url(../css/fonts/YanoljaYacheRegular.ttf) format('truetype');}
+        @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
+
+
+        html, body {width: 100%; height: 100%; margin: auto 0; background: #070E20; }
+        header{width: 60%; margin: auto 0; position: absolute; left: 50%; transform: translateX(-50%);float:left; display: block;}
+        div{width: 60%; color : #ffffff; margin: auto 0; }
+        h3 {color : #464646; font-size : 25px; font-family: YanoljaYacheRegular;}
+
+        #logo{float: left; margin-left: 50px;}
+      /* The side navigation menu */
+        .sidenav {
+            height: 100%; /* 100% Full-height */
+            width: 0; /* 0 width - change this with JavaScript */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0;
+            left: 0;
+            background-color: #111; /* Black*/
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 60px; /* Place content 60px from the top */
+            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+        }
+
+        /* The navigation menu links */
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+        }
+
+        /* Position and style the close button (top right corner) */
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* The side navigation menu */
+        .sidenav {
+            height: 100%; /* 100% Full-height */
+            width: 0; /* 0 width - change this with JavaScript */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0;
+            left: 0;
+            background-color: #111; /* Black*/
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 60px; /* Place content 60px from the top */
+            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+        }
+
+        /* The navigation menu links */
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+        }
+
+        /* Position and style the close button (top right corner) */
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        p.round2 {
+            border: 5px solid white;
+            border-radius: 8px;
+            width: 500px;
+            height: 80px;
+            padding: 10px;
+            margin: 50px;
+            vertical-align: middle;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+
+        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+        #main {
+            width: 100%; height: 95%;
+            transition: margin-left .5s;
+            padding: 20px;
+        }
+
+        #kk {
+            width: 100%; height: 95%;
+            left: 50%; transform: translateX(-50%);
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+
+
+        .para .blank{display:inline-block;width:0;height:100%;vertical-align:middle;}
+
+    </style>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+
+        // Initialize Firebase
+        // TODO: Replace with your project's customized code snippet
+        var config = {
+            apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
+            authDomain: "tale-97db4.firebaseapp.com",
+            databaseURL: "https://tale-97db4.firebaseio.com",
+            storageBucket: "tale-97db4.appspot.com",
+            messagingSenderId: "995377513212"
+        };
+        firebase.initializeApp(config);
+
+        var btnMenu = document.getElementById("btnMenu");
+        var changeQuestion = document.getElementById("change_question");
+        var btnSave = document.getElementById("btnSave");
+        function getQuestion() {
+            var database = firebase.database();
+            var questionCout = 100;             //질문 갯수
+            var qId = Math.floor((Math.random()*questionCout));     //랜덤돌림
+            var starCountRef = database.ref('question/' + qId + '/q');
+            starCountRef.on('value', function(snapshot) {
+                document.getElementById("question").innerHTML = snapshot.val();
+            });
+        };
+
+        function save() {
+            alert(document.getElementById("insert").value);
+        }
+        changeQuestion.onclick = getQuestion();     //질문 변경 코드
+        btnMenu.onclick = openNav();
+        btnSave.onclick = save();
+    </script>
+
+    <script>
+
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.8)";
+        }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor ="#070E20";
+        }
+    </script>
+
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">글쓰기</a>
+    <a href="#">지난이야기</a>
+    <a href="#">설정</a>
+    <a href="#">앱 다운로드</a>
+</div>
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main" >
+    <header>
+        <img src="../img/menu_btn.png" id="btnMenu" width="50px" height="50px" onclick="openNav()" />
+        <br>
+        <p class="round2">
+        <img src="../img/big_fox_img.png" id="logo" width="80px" height="64px"/>
+           이전에 대답한 개수만큼 ㅇ으로 표시 돼요.</p>
+    </header>
+
+    <ul>
+        <li>
+                <div id="">
+            당신에게 가장 기억에 남는 여행지는 어디인가요?
+            <img src="../img/star_gray_img.png" id="" width="20px" height="20px"/>
+                 </div>
+
+                <br/>
+
+             <div id="">
+                 날짜
+             </div>
+
+                <br/>
+
+              <div id="">
+                  답변
+              </div>
+        </li>
+        <li>
+            <div id="">
+               나의 장점은 무엇이 있을까요?
+                <img src="../img/star_gray_img.png" id="" width="20px" height="20px"/>
+            </div>
+
+            <br/>
+
+            <div id="">
+                날짜
+            </div>
+
+            <br/>
+
+            <div id="">
+                답변
+            </div>
+        </li>
+        <li>
+            <div id="">
+                카페에서 즐겨마시는 음료는 무엇인가요?
+                <img src="../img/star_gray_img.png" id="" width="20px" height="20px"/>
+            </div>
+
+            <br/>
+
+            <div id="">
+                날짜
+            </div>
+
+            <br/>
+
+            <div id="">
+                답변
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
