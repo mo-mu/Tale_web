@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Tale</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/big_fox_img.ico" />
 
     <style>
         @font-face {font-family: 'YanoljaYacheRegular'; src: url(../css/fonts/YanoljaYacheRegular.ttf) format('truetype');}
         @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
 
 
-        html, body {width: 100%; height: 100%; margin: auto 0; background: #070E20; text-align: center; display: flex; overflow-y: hidden; overflow-x: hidden;}
+        html, body {width: 100%; height: 100%; margin: auto 0; background: #070E20; text-align: center; display: flex; }
         header{width: 80%; height: 300px; margin: auto 0; position: absolute; left: 50%; transform: translateX(-50%);}
         div{width: 80%; color : #ffffff; margin: auto 0; top:186px; bottom: 0; position: absolute; }
         h3 {color : #464646; font-size : 25px; font-family: YanoljaYacheRegular;}
@@ -20,8 +21,24 @@
         #btnSave{margin-top: 84px; margin-right: 20px; float: right;}
         #imgLogo{float: left; margin-left: 50px;}
         #changeQuestion{float: right; color: #FFFFFF; font-family: SeoulNamsanCL; font-size: 20px; margin-right: 50px; margin-top: 70px; }
-        #context{background: #FFFFFF; width: 100%; height: 100%; margin-top: 10px; text-align:left;}
+        #context{background: #FFFFFF; width: 100%; height: 100%; margin-top: -120px; text-align:left; }
         #body{left: 50%; transform: translateX(-50%);}
+
+        .balloon {
+            display: inline-block;
+            position: relative;
+            border-radius: 5px;
+        }
+        .balloon:before {
+            content: '';
+            position: absolute;
+            border-bottom: 60px solid #ffffff;
+            border-right: 30px solid transparent;
+            border-left: 30px solid transparent;
+            top: -40px;
+            left: 80px;
+            border-radius: 5px;
+        }
         /* The side navigation menu */
         .sidenav {
             height: 100%; /* 100% Full-height */
@@ -140,8 +157,9 @@
 
         /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
         function openNav() {
-            document.getElementById("mySidenav").style.width = "500px";
+            document.getElementById("mySidenav").style.width = "15%";
             document.getElementById("main").style.marginLeft = "500px";
+            document.body.css('z-index',1000000);
             document.body.style.backgroundColor = "rgba(0,0,0,0.8)";
         }
 
@@ -157,10 +175,12 @@
 <body>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">글쓰기</a>
+        <!--
+        <a href="Main.html">글쓰기</a>
+        -->
         <a href="#">지난이야기</a>
         <a href="#">설정</a>
-        <a href="#">앱 다운로드</a>
+        <a href="Preview.html">앱 다운로드</a>
     </div>
 
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
@@ -173,7 +193,7 @@
         <div id="body">
             <img src="../img/big_fox_img.png" id="imgLogo" width="126px" height="102px" onclick="logout()"/>
             <a id="changeQuestion" href="">다른 질문을 보여줘!</a>
-            <div id="context">
+            <div id="context" class="balloon">
 
                 <h3 id="question"> <br></h3>
 
@@ -181,6 +201,7 @@
         <br>
                 <textarea id="insert"  placeholder="이곳에 당신의 이야기를 적어보세요."></textarea>
             </div>
+
         </div>
 
     </div>

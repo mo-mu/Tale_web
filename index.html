@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Tale</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../img/big_fox_img.ico" />
+
     <style>
-        @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
+        @font-face {font-family: 'SeoulNamsanCL'; src: url(./css/fonts/SeoulNamsanCL.ttf) format('truetype');}
 
         html, body{width: 100%; height: 100%; margin: auto 0; background: #070E20;}
         p {color : #ffffff; font-size:30pt; font-family: SeoulNamsanCL;}
@@ -39,9 +39,9 @@
 
                 firebase.auth().onAuthStateChanged(function (user) {
                     if(user)    //로그인 돼있을 때
-                        location.href="Main.html"  // 페이지 이동...
+                        location.href="html/Main.html"  // 페이지 이동...
                     else        //로그인 안돼있을 때
-                        location.href="Preview.html"  // 페이지 이동
+                        location.href="html/Preview.html"  // 페이지 이동
                 });
 
             });
