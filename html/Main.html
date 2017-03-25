@@ -10,20 +10,22 @@
         @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
 
 
-        html, body {width: 100%; height: 100%; margin: auto 0; background: #070E20; text-align: center; display: flex; }
-        header{width: 80%; height: 300px; margin: auto 0; position: absolute; left: 50%; transform: translateX(-50%);}
-        div{width: 80%; color : #ffffff; margin: auto 0; top:186px; bottom: 0; position: absolute; }
+        html {width: 100%; height: 100%; }
+        body {width: 80%; height: 100%; margin: auto;  background: #070E20; }
+        header{width: 80%; height: 300px; margin: auto; }
+        div{width: 80%; height: 100%; color : #ffffff; margin: auto; }
         h3 {color : #464646; font-size : 25px; font-family: YanoljaYacheRegular;}
         #question{margin-left: 30px;}
         #star {margin-left: 30px;}
-        #insert{font-family: SeoulNamsanCL; font-size: 20px; color: #464646; margin-left: 30px; margin-right: 30px; margin-top: 30px; height: 100%; width: 90%; border: none;}
+        #insert{font-family: SeoulNamsanCL; font-size: 20px; color: #464646; margin-left: 30px; margin-right: 30px; margin-top: 30px; overflow-y: hidden; width: 90%; border: none;}
         #btnMenu{margin-top: 78px; margin-left: 20px; float: left;}
         #btnSave{margin-top: 84px; margin-right: 20px; float: right;}
         #imgLogo{float: left; margin-left: 50px;}
-        #changeQuestion{float: right; color: #FFFFFF; font-family: SeoulNamsanCL; font-size: 20px; margin-right: 50px; margin-top: 70px; }
-        #context{background: #FFFFFF; width: 100%; height: 100%; margin-top: -120px; text-align:left; }
-        #body{left: 50%; transform: translateX(-50%);}
+        #changeQuestion{float: right; color: #FFFFFF; font-family: SeoulNamsanCL; font-size: 20px; margin-right: 50px; }
+        #context{background: #FFFFFF; width: 100%; height: auto; text-align:left; margin-top: 70px; }
+        #body{}
 
+        textarea.autosize {min-height: 70px;}
         .balloon {
             display: inline-block;
             position: relative;
@@ -45,7 +47,6 @@
             width: 0; /* 0 width - change this with JavaScript */
             position: fixed; /* Stay in place */
             z-index: 1; /* Stay on top */
-            top: 50px;
             left: 0;
             background-color: #111; /* Black*/
             overflow-x: hidden; /* Disable horizontal scroll */
@@ -83,6 +84,7 @@
             transition: margin-left .5s;
             padding: 20px;
             left: 50%; transform: translateX(-50%);
+            position: absolute;
         }
 
         /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -130,7 +132,7 @@
             starCountRef.on('value', function(snapshot) {
                 document.getElementById("question").innerHTML = snapshot.val();
             });
-        };
+        }
 
         function save() {
             alert(document.getElementById("insert").value);
@@ -169,6 +171,13 @@
             document.getElementById("main").style.marginLeft = "0";
             document.body.style.backgroundColor ="#070E20";
         }
+
+        function resize(obj) {
+            obj.style.height = "1px";
+            obj.style.height = (12+obj.scrollHeight)+"px";
+        }
+
+
     </script>
 
 </head>
@@ -191,15 +200,20 @@
         </header>
 
         <div id="body">
-            <img src="../img/big_fox_img.png" id="imgLogo" width="126px" height="102px" onclick="logout()"/>
-            <a id="changeQuestion" href="">다른 질문을 보여줘!</a>
+            <span>
+                <img src="../img/big_fox_img.png" id="imgLogo" width="126px" height="102px" onclick="logout()"/>
+                <a id="changeQuestion" href="">다른 질문을 보여줘!</a>
+            </span>
+
             <div id="context" class="balloon">
 
                 <h3 id="question"> <br></h3>
 
                 <img src="../img/star_gray_img.png" width="12px" height="12px" id="star"/>
-        <br>
-                <textarea id="insert"  placeholder="이곳에 당신의 이야기를 적어보세요."></textarea>
+                <br>
+                <form>
+                    <textarea id="insert" class="autosize" onkeydown="resize(this)" onkeyup="resize(this)" placeholder="이곳에 당신의 이야기를 적어보세요."></textarea>
+                </form>
             </div>
 
         </div>
