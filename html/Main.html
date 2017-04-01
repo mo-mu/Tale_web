@@ -12,7 +12,7 @@
 
         html {width: 100%; height: 100%; }
         body {width: 80%; height: 100%; margin: auto;  background: #070E20; }
-        header{width: 80%; height: 300px; margin: auto; }
+        header{width: 80%; height: 20%; margin: auto; }
         div{width: 80%; height: 100%; color : #ffffff; margin: auto; }
         h3 {color : #464646; font-size : 25px; font-family: YanoljaYacheRegular;}
         #question{margin-left: 30px;}
@@ -21,7 +21,7 @@
         #btnMenu{margin-top: 78px; margin-left: 20px; float: left;}
         #btnSave{margin-top: 84px; margin-right: 20px; float: right;}
         #imgLogo{float: left; margin-left: 50px;}
-        #changeQuestion{float: right; color: #FFFFFF; font-family: SeoulNamsanCL; font-size: 20px; margin-right: 50px; }
+        #changeQuestion{float: right; color: #FFFFFF; font-family: SeoulNamsanCL; font-size: 20px; margin-right: 50px; margin-top: 30px; }
         #context{background: #FFFFFF; width: 100%; height: auto; text-align:left; margin-top: 70px; }
         #body{}
 
@@ -135,7 +135,7 @@
         }
 
         function save() {
-            alert(document.getElementById("insert").value);
+            alert("저장되었습니다.");
         }
 
         changeQuestion.onclick = getQuestion();     //질문 변경 코드
@@ -157,19 +157,14 @@
                 });
         }
 
-        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+        /* Set the width of the side navigation to 250px */
         function openNav() {
             document.getElementById("mySidenav").style.width = "15%";
-            document.getElementById("main").style.marginLeft = "500px";
-            document.body.css('z-index',1000000);
-            document.body.style.backgroundColor = "rgba(0,0,0,0.8)";
         }
 
-        /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+        /* Set the width of the side navigation to 0 */
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-            document.body.style.backgroundColor ="#070E20";
         }
 
         function resize(obj) {
@@ -184,10 +179,9 @@
 <body>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <!--
-        <a href="Main.html">글쓰기</a>
-        -->
-        <a href="#">지난이야기</a>
+
+        <a href="#" onclick="return false">글쓰기</a>
+        <a href="List__.html">지난이야기</a>
         <a href="#">설정</a>
         <a href="Preview.html">앱 다운로드</a>
     </div>
@@ -195,9 +189,9 @@
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
     <div id="main">
         <header>
-            <img src="../img/menu_btn.png" id="btnMenu" width="50px" height="50px" onclick="openNav()" />
-            <img src="../img/save_btn.png" id="btnSave" width="125px" height="40px" onclick="save()"/>
-        </header>
+        <img src="../img/menu_btn.png" id="btnMenu" width="50px" height="50px" onclick="openNav()" />
+        <img src="../img/save_btn.png" id="btnSave" width="125px" height="40px" onclick="save()"/>
+    </header>
 
         <div id="body">
             <span>
