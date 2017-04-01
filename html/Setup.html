@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Tale</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../img/big_fox_img.ico" />
 
     <style>
         @font-face {font-family: 'YanoljaYacheRegular'; src: url(../css/fonts/YanoljaYacheRegular.ttf) format('truetype');}
@@ -13,20 +12,9 @@
         html {width: 100%; height: 100%;margin: auto; position: absolute;}
         body {width: 80%; height: 100%; margin: auto; background: #070E20; }
         header{width: 80%; height: 20%; margin: auto; }
-        p{width:100%; height:100%;}
 
-        #header{width: 80%; height: 10%; margin: auto; position: relative; z-index: 100;}
-        #body{width:100%; height:100%; margin: auto; padding: 20px; position: relative; text-align: center; margin-top: 10%; z-index: 10; }
-        #btnMenu{margin-top: 78px; margin-left: 20px; float: left;}
-        #divNothing {width:80%; height:100%; margin: auto;  text-align: center; margin-top: 10%; display: none; }
-        #imgNothing {margin: auto; width: 20%; height: auto;}
-        #txtNothing {color: #FFFFFF; font-family: YanoljaYacheRegular; font-size: 40px; text-align: center; }
+        #header{width: 80%; height: 10%; margin: auto; position: relative; z-index: 100; float: left}
 
-        #divNonNthing{width:80%; height:80%; margin: auto;  text-align: center; margin-top: 50px;}
-        #contents{text-align: left; margin-bottom: 50px;}
-
-        ul{text-align: center;}
-        li {color: #FFFFFF;}
 
         /* The side navigation menu */
         .sidenav {
@@ -82,6 +70,7 @@
 
     </style>
 
+
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
@@ -103,18 +92,16 @@
     </script>
 </head>
 <body>
-
-    <!-- 네비게이션 드로어-->
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
         <a href="Main.html">글쓰기</a>
-        <a href="#" onclick="return false">지난이야기</a>
-        <a href="Setup.html">설정</a>
+        <a href="List__.html">지난이야기</a>
+        <a href="#" onclick="return false">설정</a>
         <a href="Download.html">앱 다운로드</a>
     </div>
-    <!-- // 네비게이션 드로어-->
 
+    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
     <div id="main">
         <!--헤더 -->
         <div id="header">
@@ -122,41 +109,10 @@
         </div>
         <!-- //헤더-->
 
-
         <!-- 바디-->
         <div id="body">
-            <div id = "divNothing">
-                <p>
-                    <img id = "imgNothing" src="../img/cryingfox_img.png" />
-                    <h4 id = "txtNothing" >지난 이야기가 없어요...ㅠㅠ</h4>
-                </p>
-            </div>
-            <div id="divNonNthing">
-                <ul class="mylist">
-                    <li><div id="contents">
-                        <span><span>2016/09/24</span> <a>0</a> <a>0</a> <a>0</a></span>
-                        <h3>당신에게 가장 기억에 남는 여행지는 어디인가요?</h3>
-                        <p>내게 가장 기억이 남는 곳은 바로바로 상해 입니다. 최대 두 줄 정도 보이면 될 것
-                            같은데 만약 너무 보기 지저분하면 안보여져도 됩니닷. 두 줄로 길어지면 이렇게...</p></div></li>
-                    <li><div id="contents">
-                        <span><span>2016/09/24</span> <a>0</a> <a>0</a> <a>0</a></span>
-                        <h3>당신에게 가장 기억에 남는 여행지는 어디인가요?</h3>
-                        <p>내게 가장 기억이 남는 곳은 바로바로 상해 입니다. 최대 두 줄 정도 보이면 될 것
-                            같은데 만약 너무 보기 지저분하면 안보여져도 됩니닷. 두 줄로 길어지면 이렇게...</p></div></li>
-                    <li><div id="contents">
-                        <span><span>2016/09/24</span> <a>0</a> <a>0</a> <a>0</a></span>
-                        <h3>당신에게 가장 기억에 남는 여행지는 어디인가요?</h3>
-                        <p>내게 가장 기억이 남는 곳은 바로바로 상해 입니다. 최대 두 줄 정도 보이면 될 것
-                            같은데 만약 너무 보기 지저분하면 안보여져도 됩니닷. 두 줄로 길어지면 이렇게...</p></div></li>
-                    <li><div id="contents">
-                        <span><span>2016/09/24</span> <a>0</a> <a>0</a> <a>0</a></span>
-                        <h3>당신에게 가장 기억에 남는 여행지는 어디인가요?</h3>
-                        <p>내게 가장 기억이 남는 곳은 바로바로 상해 입니다. 최대 두 줄 정도 보이면 될 것
-                            같은데 만약 너무 보기 지저분하면 안보여져도 됩니닷. 두 줄로 길어지면 이렇게...</p></div></li>
-                </ul>
-            </div>
         </div>
-        <!-- //바디-->
+
     </div>
 </body>
 </html>

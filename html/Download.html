@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Tale</title>
+
+    <style>
+        @font-face {font-family: 'YanoljaYacheRegular'; src: url(../css/fonts/YanoljaYacheRegular.ttf) format('truetype');}
+        @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
+
+
+        html {width: 100%; height: 100%;margin: auto; position: absolute;}
+        body {width: 80%; height: 100%; margin: auto; background: #070E20; }
+        header{width: 80%; height: 20%; }
+        p {color : #ffffff; font-size : 25px; font-family: SeoulNamsanCL;}
+
+        #title{margin-bottom: 60px;}
+        #header{width: 80%; height: 10%; margin: auto; position: relative; z-index: 100;}
+        #img2{ margin-left: 22px; display: inline-block;}
+        #img1{float:left;}
+
+        /* The side navigation menu */
+        .sidenav {
+            height: 100%; /* 100% Full-height */
+            width: 0; /* 0 width - change this with JavaScript */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            left: 0;
+            background-color: #111; /* Black*/
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 60px; /* Place content 60px from the top */
+            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+        }
+
+        /* The navigation menu links */
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+        }
+
+        /* Position and style the close button (top right corner) */
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+
+        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+        #main {
+            transition: margin-left .5s;
+            padding: 20px;
+            left: 50%; transform: translateX(-50%);
+            position: absolute;
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+
+    </style>
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+
+
+        /* Set the width of the side navigation to 250px */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "15%";
+        }
+
+        /* Set the width of the side navigation to 0 */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <a href="Main.html">글쓰기</a>
+    <a href="List__.html">지난이야기</a>
+    <a href="Setup.html">설정</a>
+    <a href="#" onclick="return false">앱 다운로드</a>
+</div>
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+    <!--헤더 -->
+    <div id="header">
+        <img src="../img/menu_btn.png" id="btnMenu" width="50px" height="50px" onclick="openNav()" />
+    </div>
+    <!-- //헤더-->
+
+    <!-- 바디-->
+    <div id="body">
+        <span class="context">
+            <p id="title">매일 새로운 질문을 통해 '나'를 되돌아 보세요.</p>
+            <span class="another">
+                <div id="img1"><a href=""><img src="../img/apple_img.png" height="70px" width="215px"></a></div>
+                <div id="img2"><a href="https://play.google.com/store/apps/details?id=com.momu.tale"><img src="../img/google_img.png" height="70px" width="215px"></a></div>
+            </span>
+        </span>
+    </div>
+
+</div>
+</body>
+</html>
