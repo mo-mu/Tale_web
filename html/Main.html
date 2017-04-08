@@ -118,23 +118,47 @@
         };
         firebase.initializeApp(config);
 
-        var user =firebase.auth().currentUser;
-        console.log(user.email);
 
+        var qId, question;
         function getQuestion() {
+            firebase.auth().onAuthStateChanged(function (user) {
+                if(user){
+                    var user =firebase.auth().currentUser;
+                    console.log(user.email);
+                }    //로그인 돼있을 때
+                else  {      //로그인 안돼있을 때
+                    location.href="Preview.html"  // 페이지 이동
+                }
+            });
             var database = firebase.database();
             var questionCout = 100;             //질문 갯수
-            var qId = Math.floor((Math.random()*questionCout));     //랜덤돌림
+            qId = Math.floor((Math.random()*questionCout));     //랜덤돌림
             console.log(qId);
 
             var starCountRef = database.ref('question/' + qId + '/q');
             starCountRef.on('value', function(snapshot) {
-                document.getElementById("question").innerHTML = snapshot.val();
+                question = snapshot.val();
+                document.getElementById("question").innerHTML = question;
             });
         }
 
         function save() {
-            alert("저장되었습니다.");
+            var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
+            var child = ref.child('0');
+                var date = new Date();
+                child.set({
+                    aId : 0,
+                    answer : document.getElementById('insert').value,
+                    created_at : date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate(),
+                    qId : qId,
+                    question : question
+                },function (error) {
+                    if(!error)
+                        alert("저장되었습니다.");
+                    else
+                        alert(error.value);
+                });
+
         }
 
         function logout() {
