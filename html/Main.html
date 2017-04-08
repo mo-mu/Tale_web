@@ -108,6 +108,7 @@
 
         // Initialize Firebase
         // TODO: Replace with your project's customized code snippet
+
         var config = {
             apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
             authDomain: "tale-97db4.firebaseapp.com",
@@ -117,18 +118,16 @@
         };
         firebase.initializeApp(config);
 
-        const btnMenu = document.getElementById("btnMenu");
-        const changeQuestion = document.getElementById("changeQuestion");
-        const btnSave = document.getElementById("btnSave");
-        const imgLogo = document.getElementById("imgLogo");
+        var user =firebase.auth().currentUser;
+        console.log(user.email);
 
         function getQuestion() {
-           var database = firebase.database();
-           var questionCout = 100;             //질문 갯수
-           var qId = Math.floor((Math.random()*questionCout));     //랜덤돌림
+            var database = firebase.database();
+            var questionCout = 100;             //질문 갯수
+            var qId = Math.floor((Math.random()*questionCout));     //랜덤돌림
             console.log(qId);
 
-           var starCountRef = database.ref('question/' + qId + '/q');
+            var starCountRef = database.ref('question/' + qId + '/q');
             starCountRef.on('value', function(snapshot) {
                 document.getElementById("question").innerHTML = snapshot.val();
             });
@@ -138,13 +137,7 @@
             alert("저장되었습니다.");
         }
 
-        changeQuestion.onclick = getQuestion();     //질문 변경 코드
-        btnMenu.onclick = openNav();
-        btnSave.onclick = save();
-
-        imgLogo.onclick = logout();
-
-            function logout() {
+        function logout() {
                 firebase.auth().signOut().then(function () {
 
                     alert("로그아웃 되었습니다");
@@ -176,7 +169,7 @@
     </script>
 
 </head>
-<body>
+<body onload="getQuestion()">
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
@@ -196,7 +189,7 @@
         <div id="body">
             <span>
                 <img src="../img/big_fox_img.png" id="imgLogo" width="126px" height="102px" onclick="logout()"/>
-                <a id="changeQuestion" href="">다른 질문을 보여줘!</a>
+                <a id="changeQuestion" onclick="getQuestion()" href="#">다른 질문을 보여줘!</a>
             </span>
 
             <div id="context" class="balloon">
