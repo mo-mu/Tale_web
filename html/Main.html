@@ -143,11 +143,23 @@
         }
 
         function save() {
+            console.log("clicked");
+            var aId =-1;
             var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
-            var child = ref.child('0');
+            if(ref!=null){
+                ref.on('child_added', function(snapshot) {
+                    var answer = snapshot.val();
+                    if (aId < answer.aId) {
+                        aId = answer.aId;
+                        console.log(aId);
+                    }
+                });
+            }
+                console.log(aId+1);
+                var child = ref.child((aId+1));
                 var date = new Date();
                 child.set({
-                    aId : 0,
+                    aId : (aId+1),
                     answer : document.getElementById('insert').value,
                     created_at : date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate(),
                     qId : qId,
@@ -158,7 +170,7 @@
                     else
                         alert(error.value);
                 });
-
+                return;
         }
 
         function logout() {

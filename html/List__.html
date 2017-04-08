@@ -106,7 +106,7 @@
 
                     lists.on('child_added', function (data) {
                         if (data) {
-                            document.getElementById("divNonNthing").style.display = "block";
+                            document.getElementById("divNonNothing").style.display = "block";
                             document.getElementById("divNothing").style.display = "none";
                             question = data.val().question;
                             answer = data.val().answer;
@@ -114,13 +114,12 @@
                             $('#lists').append(' <li><span id="txtTime">'+time+'</span>' +
                                 ' <div><h3 id="txtQuestion">'+question+'</h3> <p id="txtAnswer">'+answer+'</p></div></li> <br>');
                         } else {
-                            document.getElementById("divNonNthing").style.display = "none";
+                            document.getElementById("divNonNothing").style.display = "none";
                             document.getElementById("divNothing").style.display = "block";
-
                         }
                     });
-                    if(lists){
-                        document.getElementById("divNonNthing").style.display = "none";
+                    if(lists==null){
+                        document.getElementById("divNonNothing").style.display = "none";
                         document.getElementById("divNothing").style.display = "block";
                     }
                 }
@@ -171,7 +170,7 @@
                     <h4 id = "txtNothing" >지난 이야기가 없어요...ㅠㅠ</h4>
                 </p>
             </div>
-            <div id="divNonNthing">
+            <div id="divNonNothing">
                 <ul class="mylist" id="lists">
                 </ul>
             </div>
