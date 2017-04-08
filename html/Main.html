@@ -142,35 +142,67 @@
             });
         }
 
+        function sendingData(aId) {
+
+            var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
+            console.log("최후 "+ (aId));
+            var child = ref.child((aId));
+            var date = new Date();
+            child.set({
+                aId : (aId),
+                answer : document.getElementById('insert').value,
+                created_at : date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate(),
+                qId : qId,
+                question : question
+            },function (error) {
+                if(!error)
+                    alert("저장되었습니다.");
+                else
+                    alert(error.value);
+            });
+        }
+
         function save() {
-            console.log("clicked");
             var aId =-1;
             var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
-            if(ref!=null){
-                ref.on('child_added', function(snapshot) {
-                    var answer = snapshot.val();
+
+            ref.once('value').then(function (snapshot) {
+                console.log(snapshot.val());
+                    try{
+                    var aId = snapshot.val().length;
+                        console.log(aId);
+                        sendingData(aId);
+                    }catch (err){
+
+                        sendingData(0);
+                    }
+
+            });   /*
+        if(ref!=""){
+            console.log("clicked 2");
+            ref.on('child_added', function(snapshot) {
+
+                console.log("clicked 2-1 : " + aId);
+                try{
+                var answer = snapshot.val().aId;
+                    console.log("clicked 2-1-2");
+                    console.log(answer.aId);
                     if (aId < answer.aId) {
                         aId = answer.aId;
-                        console.log(aId);
+                        console.log("리스트 안에 있는 것 : "+aId);
+                        sendingData(aId+1);
                     }
-                });
-            }
-                console.log(aId+1);
-                var child = ref.child((aId+1));
-                var date = new Date();
-                child.set({
-                    aId : (aId+1),
-                    answer : document.getElementById('insert').value,
-                    created_at : date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate(),
-                    qId : qId,
-                    question : question
-                },function (error) {
-                    if(!error)
-                        alert("저장되었습니다.");
                     else
-                        alert(error.value);
-                });
-                return;
+                        return;
+                }
+                catch (err){
+                }
+            });
+        }
+        else{
+
+        }*/
+
         }
 
         function logout() {
