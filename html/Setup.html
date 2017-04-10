@@ -9,12 +9,13 @@
         @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
 
 
-        html {width: 100%; height: 100%;margin: auto; position: absolute;}
-        body {width: 80%; height: 100%; margin: auto; background: #070E20; }
-        header{width: 80%; height: 20%; margin: auto; }
+        html {width: 100%; height: 100%; position: absolute;}
+        body {width: 80%; height: 100%;background: #070E20; }
+        header{width: 80%; height: 20%; margin-left: 20%; margin-right: 20%;}
 
-        #header{width: 80%; height: 10%; margin: auto; position: relative; z-index: 100; float: left}
-
+        #header{z-index: 100;}
+        #body{width:100%; height:100%; margin: auto; padding: 20px; position: relative; text-align: center; margin-top: 10%; z-index: 10; }
+        #btnMenu{margin-top: 78px; margin-left: 20px; float: left;}
 
         /* The side navigation menu */
         .sidenav {
@@ -102,12 +103,13 @@
     </div>
 
     <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+
+    <!--헤더 -->
+    <header id="header">
+        <img src="../img/menu_btn.png" id="btnMenu" width="50px" height="50px" onclick="openNav()" />
+    </header>
+    <!-- //헤더-->
     <div id="main">
-        <!--헤더 -->
-        <div id="header">
-            <img src="../img/menu_btn.png" id="btnMenu" width="50px" height="50px" onclick="openNav()" />
-        </div>
-        <!-- //헤더-->
 
         <!-- 바디-->
         <div id="body">
