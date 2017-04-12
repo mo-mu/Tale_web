@@ -35,17 +35,16 @@
             };
             firebase.initializeApp(config);
 
-            $("p").fadeOut(2000,function () {
-
-                firebase.auth().onAuthStateChanged(function (user) {
-                    if(user)    //로그인 돼있을 때
-                        location.href="Main.html"  // 페이지 이동...
-                    else        //로그인 안돼있을 때
-                        location.href="Preview.html"  // 페이지 이동
-                });
-
+            $("p").hide().fadeIn(2000,function () {
+            	$("p").fadeOut(1000,function () {
+	            	firebase.auth().onAuthStateChanged(function (user) {
+		                    	if(user)    //로그인 돼있을 때
+		                        	location.href="Main.html"  // 페이지 이동...
+		                    	else        //로그인 안돼있을 때
+		                        	location.href="Preview.html"  // 페이지 이동
+	                	});
+		});
             });
-
         });
     </script>
 </head>
