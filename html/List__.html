@@ -17,15 +17,15 @@
 
         #header{z-index: 100;}
         #body{width:100%; height:100%; margin: auto; padding: 20px; position: relative; text-align: center;  z-index: 10; margin-left: 20%; }
-        #btnMenu{margin-top: 78px; margin-left: 20px; float: left;}
+        #btnMenu{margin-top: 78px; margin-left: 20px; float: left; cursor: pointer;}
         #divNothing {width:80%; height:100%; margin: auto;  text-align: center; margin-top: 10%; display: none; }
         #imgNothing {margin: auto; width: 20%; height: auto;}
         #txtNothing {color: #FFFFFF; font-family: YanoljaYacheRegular; font-size: 40px; text-align: center; }
 
         #divNonNothing{width:80%; height:80%;  text-align: center;}
 
-        ul{text-align: center;}
-        li {color: #FFFFFF; width:100%; text-align: left; margin-bottom: 50px;}
+        ul{text-align: center; list-style:none; padding-left:0px}
+        li {color: #FFFFFF; width:100%; text-align: left; margin-bottom: 50px; cursor: pointer;}
 
         /* The side navigation menu */
         .sidenav {
@@ -112,7 +112,7 @@
                             question = data.val().question;
                             answer = data.val().answer;
                             time = data.val().created_at;
-                            $('#lists').append(' <li><span id="txtTime">'+time+'</span>' +
+                            $('#lists').append(' <li  id="blQuestion" onclick="gotoDetail()"><span id="txtTime">'+time+'</span>' +
                                 ' <div><h3 id="txtQuestion">'+question+'</h3> <p id="txtAnswer">'+answer+'</p></div></li> <br>');
                         } else {
                             document.getElementById("divNonNothing").style.display = "none";
@@ -131,9 +131,14 @@
 
         }
 
+        function gotoDetail() {
+            alert("준비중...");
+            console.log("준비중...");
+        }
+
         /* Set the width of the side navigation to 250px */
         function openNav() {
-            document.getElementById("mySidenav").style.width = "15%";
+            document.getElementById("mySidenav").style.width = "20%";
         }
 
         /* Set the width of the side navigation to 0 */
