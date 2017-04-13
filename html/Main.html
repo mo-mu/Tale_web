@@ -130,7 +130,7 @@
                     ref.on('value',function (snapshot) {
                         userName = snapshot.val();
                     })
-                    getQuestion();
+                    getData();
                 }    //로그인 돼있을 때
                 else  {      //로그인 안돼있을 때
                     location.href="Preview.html"  // 페이지 이동
@@ -150,6 +150,27 @@
                 question = snapshot.val();
                 document.getElementById("question").innerHTML = userName+"님, "+question;
             });
+        }
+
+        function getData() {
+            var date = new Date();
+            var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
+            ref.limitToLast(1).on('child_added', function(snapshot) {
+                try{
+                    var dat = snapshot.val().created_at;
+                    console.error(dat)
+                    if(dat == (''+date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate())){
+                            document.getElementById("question").innerHTML = userName+"님, "+snapshot.val().question;
+                            document.getElementById("insert").innerHTML = snapshot.val().answer;
+                    }else
+                        getQuestion();
+
+                }catch (err){
+                    console.error(err);
+                }
+
+            });
+
         }
 
         function sendingData(aId) {
@@ -173,7 +194,6 @@
         }
 
         function save() {
-            var aId =-1;
             var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
 
             ref.once('value').then(function (snapshot) {
