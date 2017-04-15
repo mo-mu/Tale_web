@@ -12,10 +12,14 @@
         html {width: 100%; height: 100%; position: absolute;}
         body {width: 80%; height: 100%;background: #070E20; }
         header{width: 80%; height: 20%; margin-left: 20%; margin-right: 20%;}
+        p {color:white; font-family: SeoulNamsanCL;  font-size:25px;}
 
         #header{z-index: 100;}
         #body{width:100%; height:100%; margin: auto; padding: 20px; position: relative; text-align: center;  z-index: 10; }
         #btnMenu{margin-top: 78px; margin-left: 20px; float: left; cursor: pointer;}
+
+        #title{float:left;}
+        #content{float:right;}
 
         /* The side navigation menu */
         .sidenav {
@@ -57,6 +61,7 @@
 
         /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
         #main {
+            width:50%;
             transition: margin-left .5s;
             padding: 20px;
             left: 50%; transform: translateX(-50%);
@@ -113,6 +118,9 @@
 
         <!-- 바디-->
         <div id="body">
+            <p id="title">만든이</p>
+            <p id="content">MOMU</p>
+            <div></div>
         </div>
 
     </div>

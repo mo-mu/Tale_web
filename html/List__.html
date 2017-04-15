@@ -16,15 +16,22 @@
         p{width:100%; height:100%;}
 
         #header{z-index: 100;}
-        #body{width:100%; height:100%; margin: auto; padding: 20px; position: relative; text-align: center;  z-index: 10; margin-left: 20%; }
-        #btnMenu{margin-top: 78px; margin-left: 20px; float: left; cursor: pointer;}
+        #body{width:100%; height:100%; margin: auto; position: relative;  z-index: 10;}
+        #btnMenu{margin-top: 78px; margin-left: 20px; float: left; cursor: pointer; z-index: 1000;}
         #divNothing {width:80%; height:100%; margin: auto;  text-align: center; margin-top: 10%; display: none; }
         #imgNothing {margin: auto; width: 20%; height: auto;}
         #txtNothing {color: #FFFFFF; font-family: YanoljaYacheRegular; font-size: 40px; text-align: center; }
 
-        #divNonNothing{width:80%; height:80%;  text-align: center;}
+        #curPaging {float:left;}
+        #paging{}
+        #divNonNothing{width:80%; height:80%;margin-left: 30%; }
 
-        ul{text-align: center; list-style:none; padding-left:0px}
+        #arrow{width: 22px; height: 22px;}
+        #txtQuestion{font-family: YanoljaYacheRegular; text-size: 25px;}
+        #txtTime{font-family: SeoulNamsanCL; text-size:18px;}
+        #txtAnswer{font-family: SeoulNamsanCL; text-size:20px;}
+
+        ul{text-align: left; list-style:none; padding-left:0px; height: 80%;}
         li {color: #FFFFFF; width:100%; text-align: left; margin-bottom: 50px; cursor: pointer;}
 
         /* The side navigation menu */
@@ -66,11 +73,8 @@
 
 
         /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-        #main {
-            width:100%;
+        #main {width:80%;
             transition: margin-left .5s;
-            padding: 20px;
-            left: 50%; transform: translateX(-50%);
             position: absolute;
         }
 
@@ -81,22 +85,54 @@
         }
 
         .pagination {
+            margin-right:20%;
+            margin-left:20%;
+            text-align: center;
             display: inline-block;
+            margin-bottom: 30px;
         }
 
         .pagination a {
             color: white;
-            float: left;
+            float: left;  border-radius: 50%;
+
             padding: 8px 16px;
             text-decoration: none;
+            margin-right: 10px;
         }
 
         .pagination a.active {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #ffffff;
+            color: #060D1f;
+            margin-right: 10px;
         }
 
         .pagination a:hover:not(.active) {background-color: #ddd;}
+
+        #square{
+            border:0;
+            left: 50%;
+            top: 50%;
+            position: absolute;
+            background:#00000000;
+        }
+
+        #spin {
+            height: 70px;
+            width: 70px;
+            text-align: center;
+            border-radius: 50%;
+            border:dashed 5px white;
+            -webkit-animation-name: spin;
+            -webkit-animation-duration: 1.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+        }
+
+        @-webkit-keyframes spin {
+            from   {  -webkit-transform: rotate(0deg); }
+            to   {  -webkit-transform: rotate(360deg); }
+        }
 
     </style>
 
@@ -145,40 +181,83 @@
             var request = new Request();
             var gCount = request.getParameter('group');
             var aCount;
-            let listCount = 4;
+            let listCount = 3;
 
             firebase.auth().onAuthStateChanged(function (user) {
                 if(user){    //로그인 돼있을 때
                     var time, question, answer;
                     var lists = firebase.database().ref('Answer/' + user.uid + "");
-
-                    lists.once('value').then(function (snapshot) {
-                            aCount = snapshot.val().length;
-                    });
-                    for(var i= 1;i<(aCount/listCount);i++)
-                    $('#paging').append('<a href="./List__.html?group="i>i</a> ');
-
-                    console.log(gCount);
-                    lists.on('child_added', function (data) {
-                        if (data) {
-                                document.getElementById("divNonNothing").style.display = "block";
-                                document.getElementById("divNothing").style.display = "none";
-                                question = data.val().question;
-                                answer = data.val().answer;
-                                time = data.val().created_at;
-                            if((listCount*(gCount-1))<= data.val().aId && data.val().aId <(listCount*gCount)) {
-                                $('#lists').append(' <li  id="blQuestion" onclick="gotoDetail()"><span id="txtTime">' + time + '</span>' +
-                                    ' <div><h3 id="txtQuestion">' + question + '</h3> <p id="txtAnswer">' + answer + '</p></div></li> <br>');
-                            }
-                        } else {
-                            document.getElementById("divNonNothing").style.display = "none";
-                            document.getElementById("divNothing").style.display = "block";
-                        }
-                    });
                     if(lists==null){
+                        console.error("41");
+                        document.getElementById("spin").style.display="none";
+                        document.getElementById("square").style.display="none";
+                        document.getElementById("spin").style.display="none";
+                        document.getElementById("square").style.display="none";
                         document.getElementById("divNonNothing").style.display = "none";
                         document.getElementById("divNothing").style.display = "block";
                     }
+                    else{
+                        //페이징 만들기 위해 실행
+                        lists.once('value').then(function (snapshot) {
+                            if(snapshot.val()==null) {          //처음 회원가입한 경우(리스트가 없을 경우)
+                                console.error("1");
+                                document.getElementById("spin").style.display = "none";
+                                document.getElementById("square").style.display = "none";
+                                document.getElementById("spin").style.display = "none";
+                                document.getElementById("square").style.display = "none";
+                                document.getElementById("divNonNothing").style.display = "none";
+                                document.getElementById("divNothing").style.display = "block";
+
+                            }else{                  //이미 회원가입하고 (있을 경우)
+                                aCount = Number(snapshot.val().length);
+                                console.log(Math.ceil(aCount/listCount));
+                                if((Number(gCount)-1)>=1)
+                                    $('#paging').append('<a id ="befer" href="./List__.html?group='+(gCount-1)+'"><img id="arrow" src="../img/before_btn.png"/></a>');
+
+                                for(var i= 1;i<=(Math.ceil(aCount/listCount));i++){
+                                    console.error(i+"    "+gCount);
+                                    $('#paging').append('<a id ="curPaging'+i+'" href="./List__.html?group='+i+'">'+i+'</a>');
+                                    if(Number(gCount)===i){
+                                        console.error(i+"    "+gCount);
+                                        $('#curPaging'+i).addClass('active');
+                                    }
+                                }
+
+                                if((Number(gCount)+1)<=(Math.ceil(aCount/listCount)))
+                                   $('#paging').append('<a id ="after" href="./List__.html?group='+(gCount+1)+'"><img id= "arrow" src="../img/after_btn.png"/></a>');
+                            }
+                        });
+
+
+                        //리스트 불러옴
+                        lists.on('child_added', function (data) {
+                            if (data) {     //데이터가 있다면
+                                console.error("2");
+                                document.getElementById("spin").style.display="none";
+                                document.getElementById("square").style.display="none";
+                                    document.getElementById("divNonNothing").style.display = "block";
+                                    document.getElementById("divNothing").style.display = "none";
+                                    question = data.val().question;
+                                    answer = data.val().answer;
+                                    time = data.val().created_at;
+                                if((listCount*(gCount-1))<= data.val().aId && data.val().aId <(listCount*gCount)) {
+                                    $('#lists').append(' <li  id="blQuestion" onclick="gotoDetail()">' +'<div><h3 id="txtQuestion">' + question + '</h3> '+
+                                        ' <span id="txtTime">' + time + '</span> <p id="txtAnswer">' + answer + '</p></div></li> <br>');
+                                }
+                            } else {    //없다면
+                                console.error("3");
+                                document.getElementById("spin").style.display="none";
+                                document.getElementById("square").style.display="none";
+                                document.getElementById("spin").style.display="none";
+                                document.getElementById("square").style.display="none";
+                                document.getElementById("divNonNothing").style.display = "none";
+                                document.getElementById("divNothing").style.display = "block";
+                            }
+                        });
+
+                    }
+
+
                 }
                 else  {      //로그인 안돼있을 때
                     location.href="Preview.html"  // 페이지 이동
@@ -236,10 +315,15 @@
                 <ul class="mylist" id="lists">
                 </ul>
 
-                <span class="pagination" id="paging"></span>
+                <div class="pagination" id="paging"></div>
             </div>
         </div>
         <!-- //바디-->
     </div>
+
+    <div id="square">
+        <div id="spin"></div>
+    </div>
 </body>
+
 </html>

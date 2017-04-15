@@ -87,6 +87,7 @@
 
         /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
         #main {
+            display: none;
             transition: margin-left .5s;
             padding: 20px;
             left: 50%; transform: translateX(-50%);
@@ -97,6 +98,32 @@
         @media screen and (max-height: 450px) {
             .sidenav {padding-top: 15px;}
             .sidenav a {font-size: 18px;}
+        }
+
+
+        #square{
+            border:0;
+            left: 10%;
+            top: 40%;
+            position: absolute;
+            background:#00000000;
+        }
+
+        #spin {
+            height: 70px;
+            width: 70px;
+            text-align: center;
+            border-radius: 50%;
+            border:dashed 5px white;
+            -webkit-animation-name: spin;
+            -webkit-animation-duration: 1.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+        }
+
+        @-webkit-keyframes spin {
+            from   {  -webkit-transform: rotate(0deg); }
+            to   {  -webkit-transform: rotate(360deg); }
         }
 
     </style>
@@ -133,13 +160,12 @@
             firebase.auth().onAuthStateChanged(function (user) {
                 if(user){
                     var user =firebase.auth().currentUser;
-                    console.log(user.email);
                     var database = firebase.database();
                     var ref = database.ref('user/'+user.uid+'/nickname');
                     ref.on('value',function (snapshot) {
                         userName = snapshot.val();
-                    })
-                    getData();
+                        getData();
+                    });
                 }    //로그인 돼있을 때
                 else  {      //로그인 안돼있을 때
                     location.href="Preview.html"  // 페이지 이동
@@ -166,11 +192,24 @@
         function getData() {
             var date = new Date();
             var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
+            ref.on('value',function (snapshot) {
+               if(snapshot.val()==null){          //처음 가입했을 때
+                   document.getElementById("main").style.display = "block";
+                   document.getElementById("spin").style.display = "none";
+                   document.getElementById("square").style.display = "none";
+                   document.getElementById("btnSave").style.display = "block";
+                   document.getElementById("blockModi").style.display = "none";
+                   document.getElementById("blockBtn").style.display = "block";
+                   document.getElementById("changeQuestion").style.display = "block";
+                   getQuestion();
+               }
+            });
+
+            //가입한 후 글을 쓴 사람인 경우(ref경로로 글이 있는 경우)
             ref.limitToLast(1).on('child_added', function(snapshot) {
                 try{
                     var dat = snapshot.val().created_at;
-
-                    if(dat == (''+date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate())){
+                    if(dat == (''+date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate())){        //오늘 일기 쓴 것 이 있을 경우
                         console.error(dat);
                         console.error(snapshot.val().aId + snapshot.val().answer);
                         console.error(snapshot.val().qId + snapshot.val().question);
@@ -181,13 +220,20 @@
                         created_at = dat;
                         qId = snapshot.val().qId;
 
+                        document.getElementById("main").style.display = "block";
+                        document.getElementById("spin").style.display = "none";
+                        document.getElementById("square").style.display = "none";
                         document.getElementById("btnSave").style.display = "none";
                         document.getElementById("blockModi").style.display = "block";
                         document.getElementById("blockBtn").style.display = "block";
                         document.getElementById("changeQuestion").style.display = "none";
                         document.getElementById("question").innerHTML = userName+"님, "+snapshot.val().question;
                         document.getElementById("insert").value = snapshot.val().answer;
-                    }else{
+                    }else{                                                                                  //오늘 일기 없을 경우
+
+                        document.getElementById("main").style.display = "block";
+                        document.getElementById("spin").style.display = "none";
+                        document.getElementById("square").style.display = "none";
                         document.getElementById("btnSave").style.display = "block";
                         document.getElementById("blockModi").style.display = "none";
                         document.getElementById("blockBtn").style.display = "block";
@@ -196,7 +242,6 @@
                     }
 
                 }catch (err){
-                    console.error(err);
                 }
             });
         }
@@ -343,4 +388,8 @@
 
     </div>
 </body>
+
+<div id="square">
+    <div id="spin"></div>
+</div>
 </html>
