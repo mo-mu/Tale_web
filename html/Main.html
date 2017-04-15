@@ -202,7 +202,6 @@
         }
 
         function modiPara() {
-
             var data = {
                 aId : (aId),
                 answer : document.getElementById("insert").value,
@@ -264,32 +263,7 @@
                         sendingData(0);
                     }
 
-            });   /*
-        if(ref!=""){
-            console.log("clicked 2");
-            ref.on('child_added', function(snapshot) {
-
-                console.log("clicked 2-1 : " + aId);
-                try{
-                var answer = snapshot.val().aId;
-                    console.log("clicked 2-1-2");
-                    console.log(answer.aId);
-                    if (aId < answer.aId) {
-                        aId = answer.aId;
-                        console.log("리스트 안에 있는 것 : "+aId);
-                        sendingData(aId+1);
-                    }
-                    else
-                        return;
-                }
-                catch (err){
-                }
             });
-        }
-        else{
-
-        }*/
-
         }
 
         function logout() {
@@ -329,7 +303,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
         <a href="#" onclick="return false">글쓰기</a>
-        <a href="List__.html">지난이야기</a>
+        <a href="List__.html?group=1">지난이야기</a>
         <a href="Setup.html">설정</a>
         <a href="Download.html">앱 다운로드</a>
     </div>

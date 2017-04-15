@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fb35cab-b6a8-4852-8d0c-87bb4ec04989" name="Default" comment="0. 새로 바뀐 스플래시가 firebase hosting에서 첫페이지로 적용되도록 변경.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/delete_btn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/modify_btn.png" />
+    <list default="true" id="0fb35cab-b6a8-4852-8d0c-87bb4ec04989" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/Download.html" afterPath="$PROJECT_DIR$/html/Download.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/List__.html" afterPath="$PROJECT_DIR$/html/List__.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/Main.html" afterPath="$PROJECT_DIR$/html/Main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/Setup.html" afterPath="$PROJECT_DIR$/html/Setup.html" />
     </list>
     <ignored path="$PROJECT_DIR$/../untitled/.tmp/" />
     <ignored path="$PROJECT_DIR$/../untitled/temp/" />
@@ -26,8 +27,8 @@
       <file leaf-file-name="Splash.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/Splash.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-439">
+              <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -43,43 +44,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="List__.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="List__.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/List__.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2204">
-              <caret line="116" column="32" lean-forward="false" selection-start-line="116" selection-start-column="32" selection-end-line="118" selection-end-column="90" />
+            <state relative-caret-position="1689">
+              <caret line="241" column="20" lean-forward="true" selection-start-line="241" selection-start-column="20" selection-end-line="241" selection-end-column="20" />
               <folding>
-                <element signature="e#6483#6490#1" expanded="true" />
+                <element signature="e#8364#8371#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Setup.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/Setup.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Download.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/Download.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/Main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="232" column="0" lean-forward="true" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+            <state relative-caret-position="463">
+              <caret line="265" column="15" lean-forward="true" selection-start-line="254" selection-start-column="7" selection-end-line="265" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Preview.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/Preview.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="49" lean-forward="false" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -168,15 +159,15 @@
         <option value="$PROJECT_DIR$/js/ChangeQuestion.js" />
         <option value="$PROJECT_DIR$/js/SignUpWorker.js" />
         <option value="$PROJECT_DIR$/html/Preview.html" />
-        <option value="$PROJECT_DIR$/html/List__.html" />
-        <option value="$PROJECT_DIR$/html/Setup.html" />
-        <option value="$PROJECT_DIR$/html/Download.html" />
         <option value="$PROJECT_DIR$/html/LogIn.html" />
         <option value="$PROJECT_DIR$/html/SignUp.html" />
         <option value="$PROJECT_DIR$/html/Splash.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/html/Main.html" />
         <option value="$PROJECT_DIR$/html/Main.html" />
+        <option value="$PROJECT_DIR$/html/Setup.html" />
+        <option value="$PROJECT_DIR$/html/Download.html" />
+        <option value="$PROJECT_DIR$/html/List__.html" />
       </list>
     </option>
   </component>
@@ -190,7 +181,7 @@
     <handled-path value="$PROJECT_DIR$/functions/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -210,8 +201,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -254,6 +243,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -420,7 +411,8 @@
       <workItem from="1491784227442" duration="4151000" />
       <workItem from="1491953768829" duration="5046000" />
       <workItem from="1491972255417" duration="3462000" />
-      <workItem from="1492126889461" duration="936000" />
+      <workItem from="1492126889461" duration="2436000" />
+      <workItem from="1492217935852" duration="6702000" />
     </task>
     <task id="LOCAL-00001" summary="0. firebase적용중.">
       <created>1488604192809</created>
@@ -520,17 +512,31 @@
       <option name="project" value="LOCAL" />
       <updated>1491958770486</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="0. 오늘 하루 이미 쓴 글이 있을 시, 메인 페이지에 뜨는 뷰 변경 (저장-&gt;수정,삭제)&#10;1. 변경된 뷰가 제대로 작동되도록 각각의 케이스에 맞춰 placeholder나 value 변경&#10;2. 수정, 삭제 기능 추가. &#10;3. 수정, 삭제 이미지 버튼 추가.">
+      <created>1492127912744</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1492127912744</updated>
+    </task>
+    <task id="LOCAL-00016" summary="0. 수정, 삭제 버튼에 커서가 제대로 작동되지 않는 부분 수정(css)">
+      <created>1492128092587</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1492128092587</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179178000" />
+    <option name="totallyTimeSpent" value="187380000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40501043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8110647" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858709" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33547008" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -587,7 +593,9 @@
     <MESSAGE value="0. 지난이야기페이지 리스트 위치 수정.(왼쪽으로 고정되게 수정함)" />
     <MESSAGE value="0. preview와 download 여백 조정" />
     <MESSAGE value="0. 마우스커서 추가(클릭이 가능한 곳들 변경)&#10;1. 네비게이션 드로어 열렸을 때 맥시멈 크기 변경(15%-&gt;20%, 화면크기를 줄였을 때 드로어의 내용이 짤리는 문제가 발생하여 수정)" />
-    <option name="LAST_COMMIT_MESSAGE" value="0. 마우스커서 추가(클릭이 가능한 곳들 변경)&#10;1. 네비게이션 드로어 열렸을 때 맥시멈 크기 변경(15%-&gt;20%, 화면크기를 줄였을 때 드로어의 내용이 짤리는 문제가 발생하여 수정)" />
+    <MESSAGE value="0. 오늘 하루 이미 쓴 글이 있을 시, 메인 페이지에 뜨는 뷰 변경 (저장-&gt;수정,삭제)&#10;1. 변경된 뷰가 제대로 작동되도록 각각의 케이스에 맞춰 placeholder나 value 변경&#10;2. 수정, 삭제 기능 추가. &#10;3. 수정, 삭제 이미지 버튼 추가." />
+    <MESSAGE value="0. 수정, 삭제 버튼에 커서가 제대로 작동되지 않는 부분 수정(css)" />
+    <option name="LAST_COMMIT_MESSAGE" value="0. 수정, 삭제 버튼에 커서가 제대로 작동되지 않는 부분 수정(css)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -894,29 +902,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/Preview.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="49" lean-forward="false" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/Setup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/Download.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1334,14 +1319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/Splash.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
@@ -1350,21 +1327,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/List__.html">
+    <entry file="file://$PROJECT_DIR$/html/Splash.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2204">
-          <caret line="116" column="32" lean-forward="false" selection-start-line="116" selection-start-column="32" selection-end-line="118" selection-end-column="90" />
-          <folding>
-            <element signature="e#6483#6490#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="-439">
+          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/Preview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="49" lean-forward="false" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/Download.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="110" column="92" lean-forward="false" selection-start-line="110" selection-start-column="92" selection-end-line="110" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/Setup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="99" column="36" lean-forward="false" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/Main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="232" column="0" lean-forward="true" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+        <state relative-caret-position="463">
+          <caret line="265" column="15" lean-forward="true" selection-start-line="254" selection-start-column="7" selection-end-line="265" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/List__.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1689">
+          <caret line="241" column="20" lean-forward="true" selection-start-line="241" selection-start-column="20" selection-end-line="241" selection-end-column="20" />
+          <folding>
+            <element signature="e#8364#8371#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
