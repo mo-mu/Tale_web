@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fb35cab-b6a8-4852-8d0c-87bb4ec04989" name="Default" comment="0. 새로 바뀐 스플래시가 firebase hosting에서 첫페이지로 적용되도록 변경.">
+    <list default="true" id="0fb35cab-b6a8-4852-8d0c-87bb4ec04989" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/after_btn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/before_btn.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/List__.html" afterPath="$PROJECT_DIR$/html/List__.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/Main.html" afterPath="$PROJECT_DIR$/html/Main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/Setup.html" afterPath="$PROJECT_DIR$/html/Setup.html" />
     </list>
     <ignored path="$PROJECT_DIR$/../untitled/.tmp/" />
     <ignored path="$PROJECT_DIR$/../untitled/temp/" />
@@ -652,17 +651,23 @@
       <option name="project" value="LOCAL" />
       <updated>1492128092587</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="0. 지난 이야기 보기 페이지에 페이징 추가.&#10;1. 지난이야기 보기 페이지, 메인페이지에 프로그래스바 추가&#10;2. 처음회원가입 시, 아무 것도 못하는 오류 해결(Answer쪽 json에 아무것도 없어서 데이터를 불러오지 못했음)">
+      <created>1492248163153</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1492248163153</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201181000" />
+    <option name="totallyTimeSpent" value="201901000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40486112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40486112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858709" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -730,7 +735,8 @@
     <MESSAGE value="0. 마우스커서 추가(클릭이 가능한 곳들 변경)&#10;1. 네비게이션 드로어 열렸을 때 맥시멈 크기 변경(15%-&gt;20%, 화면크기를 줄였을 때 드로어의 내용이 짤리는 문제가 발생하여 수정)" />
     <MESSAGE value="0. 오늘 하루 이미 쓴 글이 있을 시, 메인 페이지에 뜨는 뷰 변경 (저장-&gt;수정,삭제)&#10;1. 변경된 뷰가 제대로 작동되도록 각각의 케이스에 맞춰 placeholder나 value 변경&#10;2. 수정, 삭제 기능 추가. &#10;3. 수정, 삭제 이미지 버튼 추가." />
     <MESSAGE value="0. 수정, 삭제 버튼에 커서가 제대로 작동되지 않는 부분 수정(css)" />
-    <option name="LAST_COMMIT_MESSAGE" value="0. 수정, 삭제 버튼에 커서가 제대로 작동되지 않는 부분 수정(css)" />
+    <MESSAGE value="0. 지난 이야기 보기 페이지에 페이징 추가.&#10;1. 지난이야기 보기 페이지, 메인페이지에 프로그래스바 추가&#10;2. 처음회원가입 시, 아무 것도 못하는 오류 해결(Answer쪽 json에 아무것도 없어서 데이터를 불러오지 못했음)" />
+    <option name="LAST_COMMIT_MESSAGE" value="0. 지난 이야기 보기 페이지에 페이징 추가.&#10;1. 지난이야기 보기 페이지, 메인페이지에 프로그래스바 추가&#10;2. 처음회원가입 시, 아무 것도 못하는 오류 해결(Answer쪽 json에 아무것도 없어서 데이터를 불러오지 못했음)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
