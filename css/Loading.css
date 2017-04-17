@@ -1,0 +1,27 @@
+#square{  margin-left: 2%; margin-right: 2%;  width: 96%;
+    border:0;
+    height: 80%;
+    margin: auto;
+    position: absolute;
+    background:#070E20;
+}
+
+#spin {
+    height: 70px;
+    width: 70px;
+    text-align: center;
+    border-radius: 50%;
+    border:dashed 5px white;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    top: 30%;
+    left: 47%;
+    position: absolute;
+}
+
+@-webkit-keyframes spin {
+    from   {  -webkit-transform: rotate(0deg); }
+    to   {  -webkit-transform: rotate(360deg); }
+}

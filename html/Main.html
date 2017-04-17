@@ -4,343 +4,11 @@
     <meta charset="UTF-8">
     <title>Tale</title>
     <link rel="shortcut icon" type="image/x-icon" href="../img/big_fox_img.ico" />
+    <link rel="stylesheet" type="text/css" href="../css/Fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/BodyHeaderDrawer.css">
+    <link rel="stylesheet" type="text/css" href="../css/Main.css">
+    <link rel="stylesheet" type="text/css" href="../css/Loading.css">
 
-    <style>
-        @font-face {font-family: 'YanoljaYacheRegular'; src: url(../css/fonts/YanoljaYacheRegular.ttf) format('truetype');}
-        @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
-
-
-        html {width: 100%; height: 100%; }
-        body {width: 80%; height: 100%;  background: #070E20; }
-        header{width: 80%; height: 20%; margin-left: 20%; margin-right: 20%;}
-        div{width: 80%; height: 100%; color : #ffffff; margin: auto; }
-        h3 {color : #464646; font-size : 25px; font-family: YanoljaYacheRegular;}
-
-        #question{margin-left: 30px;}
-        #star {margin-left: 30px;}
-        #insert{font-family: SeoulNamsanCL; font-size: 20px; color: #464646; margin-left: 30px; margin-right: 30px; margin-top: 30px; overflow-y: hidden; width: 90%; border: none;}
-        #btnMenu{margin-top: 78px; margin-left: 20px; float: left; cursor: pointer;}
-        #btnSave{margin-top: 84px; margin-right: 20px; float: right; cursor: pointer;
-            display: none;}
-        #imgLogo{float: left; margin-left: 50px;}
-        #changeQuestion{float: right; color: #FFFFFF; font-family: SeoulNamsanCL; font-size: 20px; margin-right: 50px; margin-top: 30px; display: none; }
-        #context{background: #FFFFFF; width: 100%; height: auto; text-align:left; margin-top: 70px; }
-        #body{}
-        #blockModi{float: right;margin-top: 84px; margin-right: 20px;  }
-        #btnModify{cursor:pointer;}
-        #btnDelete{cursor:pointer; margin-left: 20px;}
-        #blockBtn{display: none;}
-
-        textarea.autosize {min-height: 70px;}
-        .balloon {
-            display: inline-block;
-            position: relative;
-            border-radius: 5px;
-        }
-        .balloon:before {
-            content: '';
-            position: absolute;
-            border-bottom: 60px solid #ffffff;
-            border-right: 30px solid transparent;
-            border-left: 30px solid transparent;
-            top: -40px;
-            left: 80px;
-            border-radius: 5px;
-        }
-        /* The side navigation menu */
-        .sidenav {
-            height: 100%; /* 100% Full-height */
-            width: 0; /* 0 width - change this with JavaScript */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Stay on top */
-            left: 0;
-            background-color: #111; /* Black*/
-            overflow-x: hidden; /* Disable horizontal scroll */
-            padding-top: 60px; /* Place content 60px from the top */
-            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-        }
-
-        /* The navigation menu links */
-        .sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s
-        }
-
-        /* When you mouse over the navigation links, change their color */
-        .sidenav a:hover, .offcanvas a:focus{
-            color: #f1f1f1;
-        }
-
-        /* Position and style the close button (top right corner) */
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-
-        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-        #main {
-            display: none;
-            transition: margin-left .5s;
-            padding: 20px;
-            left: 50%; transform: translateX(-50%);
-            position: absolute;
-        }
-
-        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-        @media screen and (max-height: 450px) {
-            .sidenav {padding-top: 15px;}
-            .sidenav a {font-size: 18px;}
-        }
-
-
-        #square{
-            border:0;
-            left: 10%;
-            top: 40%;
-            position: absolute;
-            background:#00000000;
-        }
-
-        #spin {
-            height: 70px;
-            width: 70px;
-            text-align: center;
-            border-radius: 50%;
-            border:dashed 5px white;
-            -webkit-animation-name: spin;
-            -webkit-animation-duration: 1.5s;
-            -webkit-animation-iteration-count: infinite;
-            -webkit-animation-timing-function: linear;
-        }
-
-        @-webkit-keyframes spin {
-            from   {  -webkit-transform: rotate(0deg); }
-            to   {  -webkit-transform: rotate(360deg); }
-        }
-
-    </style>
-
-
-    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <script>
-
-        // Initialize Firebase
-        // TODO: Replace with your project's customized code snippet
-
-        var config = {
-            apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
-            authDomain: "tale-97db4.firebaseapp.com",
-            databaseURL: "https://tale-97db4.firebaseio.com",
-            storageBucket: "tale-97db4.appspot.com",
-            messagingSenderId: "995377513212"
-        };
-        firebase.initializeApp(config);
-
-        var qId, question,userName, aId, answer, created_at;
-
-
-        function checkLogin() {
-            document.getElementById("insert").value = "";
-            document.getElementById("insert").placeholder = "이곳에 당신의 이야기를 적어보세요.";
-            firebase.auth().onAuthStateChanged(function (user) {
-                if(user){
-                    var user =firebase.auth().currentUser;
-                    var database = firebase.database();
-                    var ref = database.ref('user/'+user.uid+'/nickname');
-                    ref.on('value',function (snapshot) {
-                        userName = snapshot.val();
-                        getData();
-                    });
-                }    //로그인 돼있을 때
-                else  {      //로그인 안돼있을 때
-                    location.href="Preview.html"  // 페이지 이동
-                }
-            });
-        }
-
-        function getQuestion() {
-
-            var database = firebase.database();
-            var questionCout = 100;             //질문 갯수
-            qId = Math.floor((Math.random()*questionCout));     //랜덤돌림
-            console.log(qId);
-
-            var starCountRef = database.ref('question/' + qId + '/q');
-            starCountRef.on('value', function(snapshot) {
-                question = snapshot.val();
-                document.getElementById("question").innerHTML = userName+"님, "+question;
-                document.getElementById("insert").value = "";
-                document.getElementById("insert").placeholder = "이곳에 당신의 이야기를 적어보세요.";
-            });
-        }
-
-        function getData() {
-            var date = new Date();
-            var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
-            ref.on('value',function (snapshot) {
-               if(snapshot.val()==null){          //처음 가입했을 때
-                   document.getElementById("main").style.display = "block";
-                   document.getElementById("spin").style.display = "none";
-                   document.getElementById("square").style.display = "none";
-                   document.getElementById("btnSave").style.display = "block";
-                   document.getElementById("blockModi").style.display = "none";
-                   document.getElementById("blockBtn").style.display = "block";
-                   document.getElementById("changeQuestion").style.display = "block";
-                   getQuestion();
-               }
-            });
-
-            //가입한 후 글을 쓴 사람인 경우(ref경로로 글이 있는 경우)
-            ref.limitToLast(1).on('child_added', function(snapshot) {
-                try{
-                    var dat = snapshot.val().created_at;
-                    if(dat == (''+date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate())){        //오늘 일기 쓴 것 이 있을 경우
-                        console.error(dat);
-                        console.error(snapshot.val().aId + snapshot.val().answer);
-                        console.error(snapshot.val().qId + snapshot.val().question);
-
-                        question = snapshot.val().question;
-                        aId = snapshot.val().aId;
-                        answer = snapshot.val().answer;
-                        created_at = dat;
-                        qId = snapshot.val().qId;
-
-                        document.getElementById("main").style.display = "block";
-                        document.getElementById("spin").style.display = "none";
-                        document.getElementById("square").style.display = "none";
-                        document.getElementById("btnSave").style.display = "none";
-                        document.getElementById("blockModi").style.display = "block";
-                        document.getElementById("blockBtn").style.display = "block";
-                        document.getElementById("changeQuestion").style.display = "none";
-                        document.getElementById("question").innerHTML = userName+"님, "+snapshot.val().question;
-                        document.getElementById("insert").value = snapshot.val().answer;
-                    }else{                                                                                  //오늘 일기 없을 경우
-
-                        document.getElementById("main").style.display = "block";
-                        document.getElementById("spin").style.display = "none";
-                        document.getElementById("square").style.display = "none";
-                        document.getElementById("btnSave").style.display = "block";
-                        document.getElementById("blockModi").style.display = "none";
-                        document.getElementById("blockBtn").style.display = "block";
-                        document.getElementById("changeQuestion").style.display = "block";
-                        getQuestion();
-                    }
-
-                }catch (err){
-                }
-            });
-        }
-
-        function modiPara() {
-            var data = {
-                aId : (aId),
-                answer : document.getElementById("insert").value,
-                created_at : created_at,
-                qId : qId,
-                question : question
-            }
-            var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid+'/'+aId);
-            ref.update(data);
-            alert("수정되었습니다.");
-        }
-
-
-        function delPara() {
-            var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid+'/'+aId);
-            ref.remove().then(function () {
-                console.log(""+aId);
-                alert("삭제되었습니다.");
-                document.getElementById("btnSave").style.display = "block";
-                document.getElementById("blockModi").style.display = "none";
-                document.getElementById("blockBtn").style.display = "block";
-                document.getElementById("changeQuestion").style.display = "block";
-                document.getElementById("insert").value = "";
-                document.getElementById("insert").placeholder = "이곳에 당신의 이야기를 적어보세요.";
-            });
-        }
-
-
-        function sendingData(aId) {
-            var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
-            console.log("최후 "+ (aId));
-            var child = ref.child((aId));
-            var date = new Date();
-            child.set({
-                aId : (aId),
-                answer : document.getElementById('insert').value,
-                created_at : date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate(),
-                qId : qId,
-                question : question
-            },function (error) {
-                if(!error)
-                    alert("저장되었습니다.");
-                else
-                    alert(error.value);
-            });
-        }
-
-        function savePara() {
-            var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
-
-            ref.once('value').then(function (snapshot) {
-                console.log(snapshot.val());
-                    try{
-                    var aId = snapshot.val().length;
-                        console.log(aId);
-                        sendingData(aId);
-                    }catch (err){
-
-                        sendingData(0);
-                    }
-
-            });
-        }
-
-        function logout() {
-                firebase.auth().signOut().then(function () {
-
-                    alert("로그아웃 되었습니다");
-                    location.href="Preview.html"  // 페이지 이동
-                    isLogined = false;
-                    // Sign-out successful.
-                }, function (error) {
-
-                    alert(error);
-                });
-        }
-
-        /* Set the width of the side navigation to 250px */
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "20%";
-        }
-
-        /* Set the width of the side navigation to 0 */
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
-
-        function resize(obj) {
-            obj.style.height = "1px";
-            obj.style.height = (12+obj.scrollHeight)+"px";
-        }
-
-
-    </script>
 
 </head>
 <body onload="checkLogin()">
@@ -348,7 +16,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
         <a href="#" onclick="return false">글쓰기</a>
-        <a href="List__.html?group=1">지난이야기</a>
+        <a href="List.html?group=1">지난이야기</a>
         <a href="Setup.html">설정</a>
         <a href="Download.html">앱 다운로드</a>
     </div>
@@ -359,14 +27,13 @@
         <span id="blockBtn">
             <img src="../img/save_btn.png" id="btnSave" width="125px" height="40px" onclick="savePara()"/>
             <span id = "blockModi">
-            <img src="../img/modify_btn.png" id="btnModify" width="125px" height="40px" onclick="modiPara()"/>
-            <img src="../img/delete_btn.png" id="btnDelete" width="125px" height="40px" onclick="delPara()"/>
+                <img src="../img/modify_btn.png" id="btnModify" width="125px" height="40px" onclick="modiPara()"/>
+                <img src="../img/delete_btn.png" id="btnDelete" width="125px" height="40px" onclick="delPara()"/>
             </span>
         </span>
     </header>
+
     <div id="main">
-
-
         <div id="body">
             <span>
                 <img src="../img/big_fox_img.png" id="imgLogo" width="126px" height="102px"/>
@@ -383,13 +50,218 @@
                     <textarea id="insert" class="autosize" onkeydown="resize(this)" onkeyup="resize(this)" placeholder="이곳에 당신의 이야기를 적어보세요."></textarea>
                 </form>
             </div>
+        </div>
 
+        <div id="square">
+            <div id="spin"></div>
         </div>
 
     </div>
 </body>
 
-<div id="square">
-    <div id="spin"></div>
-</div>
+
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+    // Initialize Firebase
+    // TODO: Replace with your project's customized code snippet
+    var config = {
+        apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
+        authDomain: "tale-97db4.firebaseapp.com",
+        databaseURL: "https://tale-97db4.firebaseio.com",
+        storageBucket: "tale-97db4.appspot.com",
+        messagingSenderId: "995377513212"
+    };
+    firebase.initializeApp(config);
+
+    var qId, question,userName, aId, answer, created_at;
+
+
+    function checkLogin() {
+        document.getElementById("insert").value = "";
+        document.getElementById("insert").placeholder = "이곳에 당신의 이야기를 적어보세요.";
+        firebase.auth().onAuthStateChanged(function (user) {
+            if(user){
+                var user =firebase.auth().currentUser;
+                var database = firebase.database();
+                var ref = database.ref('user/'+user.uid+'/nickname');
+                ref.on('value',function (snapshot) {
+                    userName = snapshot.val();
+                    getData();
+                });
+            }    //로그인 돼있을 때
+            else  {      //로그인 안돼있을 때
+                location.href="Preview.html"  // 페이지 이동
+            }
+        });
+    }
+
+    function getQuestion() {
+
+        var database = firebase.database();
+        var questionCout = 100;             //질문 갯수
+        qId = Math.floor((Math.random()*questionCout));     //랜덤돌림
+        console.log(qId);
+
+        var starCountRef = database.ref('question/' + qId + '/q');
+        starCountRef.on('value', function(snapshot) {
+            question = snapshot.val();
+            document.getElementById("question").innerHTML = userName+"님, "+question;
+            document.getElementById("insert").value = "";
+            document.getElementById("insert").placeholder = "이곳에 당신의 이야기를 적어보세요.";
+            document.getElementById("square").style.display = "none";
+            document.getElementById("body").style.display = "block";
+            document.getElementById("btnSave").style.display = "block";
+        });
+    }
+
+    function getData() {
+        var date = new Date();
+        var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
+        ref.on('value',function (snapshot) {
+            if(snapshot.val()==null){          //처음 가입했을 때
+                document.getElementById("blockModi").style.display = "none";
+                document.getElementById("blockBtn").style.display = "block";
+                document.getElementById("changeQuestion").style.display = "block";
+                getQuestion();
+            }
+        });
+
+        //가입한 후 글을 쓴 사람인 경우(ref경로로 글이 있는 경우)
+        ref.limitToLast(1).on('child_added', function(snapshot) {
+            try{
+                var dat = snapshot.val().created_at;
+                if(dat == (''+date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate())){        //오늘 일기 쓴 것 이 있을 경우
+                    console.error(dat);
+                    console.error(snapshot.val().aId + snapshot.val().answer);
+                    console.error(snapshot.val().qId + snapshot.val().question);
+
+                    question = snapshot.val().question;
+                    aId = snapshot.val().aId;
+                    answer = snapshot.val().answer;
+                    created_at = dat;
+                    qId = snapshot.val().qId;
+
+                    document.getElementById("question").innerHTML = userName+"님, "+snapshot.val().question;
+                    document.getElementById("insert").value = snapshot.val().answer;
+                    document.getElementById("blockModi").style.display = "block";
+                    document.getElementById("blockBtn").style.display = "block";
+                    document.getElementById("changeQuestion").style.display = "none";
+                    document.getElementById("square").style.display = "none";
+                    document.getElementById("body").style.display = "block";
+                    document.getElementById("btnSave").style.display = "none";
+                }else{                                                                                  //오늘 일기 없을 경우
+
+                    document.getElementById("blockModi").style.display = "none";
+                    document.getElementById("blockBtn").style.display = "block";
+                    document.getElementById("changeQuestion").style.display = "block";
+                    getQuestion();
+                }
+
+            }catch (err){
+            }
+        });
+    }
+
+    function modiPara() {
+        var data = {
+            aId : (aId),
+            answer : document.getElementById("insert").value,
+            created_at : created_at,
+            qId : qId,
+            question : question
+        }
+        var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid+'/'+aId);
+        ref.update(data);
+        alert("수정되었습니다.");
+    }
+
+
+    function delPara() {
+        var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid+'/'+aId);
+        ref.remove().then(function () {
+            console.log(""+aId);
+            alert("삭제되었습니다.");
+            document.getElementById("btnSave").style.display = "block";
+            document.getElementById("blockModi").style.display = "none";
+            document.getElementById("blockBtn").style.display = "block";
+            document.getElementById("changeQuestion").style.display = "block";
+            document.getElementById("insert").value = "";
+            document.getElementById("insert").placeholder = "이곳에 당신의 이야기를 적어보세요.";
+        });
+    }
+
+
+    function sendingData(aId) {
+        var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
+        console.log("최후 "+ (aId));
+        var child = ref.child((aId));
+        var date = new Date();
+        child.set({
+            aId : (aId),
+            answer : document.getElementById('insert').value,
+            created_at : date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate(),
+            qId : qId,
+            question : question
+        },function (error) {
+            if(!error)
+                alert("저장되었습니다.");
+            else
+                alert(error.value);
+        });
+    }
+
+    function savePara() {
+        var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
+
+        ref.once('value').then(function (snapshot) {
+            console.log(snapshot.val());
+            try{
+                var aId = snapshot.val().length;
+                console.log(aId);
+                sendingData(aId);
+            }catch (err){
+
+                sendingData(0);
+            }
+
+        });
+    }
+
+    function logout() {
+        firebase.auth().signOut().then(function () {
+
+            alert("로그아웃 되었습니다");
+            location.href="Preview.html"  // 페이지 이동
+            isLogined = false;
+            // Sign-out successful.
+        }, function (error) {
+
+            alert(error);
+        });
+    }
+
+    /* Set the width of the side navigation to 250px */
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "20%";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function resize(obj) {
+        obj.style.height = "1px";
+        obj.style.height = (12+obj.scrollHeight)+"px";
+    }
+
+
+</script>
 </html>

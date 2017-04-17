@@ -1,0 +1,32 @@
+h3 {color : #464646; font-size : 25px; font-family: YanoljaYacheRegular;}
+
+#question{margin-left: 30px;}
+#star {margin-left: 30px;}
+#insert{font-family: SeoulNamsanCL; font-size: 20px; color: #464646; margin-left: 30px; margin-right: 30px; margin-top: 30px; overflow-y: hidden; width: 90%; border: none;}
+#btnSave{margin-top: 84px; margin-right: 20px; float: right; cursor: pointer;  display: none;}
+#imgLogo{float: left; margin-left: 50px;}
+#changeQuestion{float: right; color: #FFFFFF; font-family: SeoulNamsanCL; font-size: 20px; margin-right: 50px; margin-top: 30px; display: none; }
+#context{background: #FFFFFF; width: 100%; height: auto; text-align:left; margin-top: 70px; }
+#body{   margin-left: 2%; margin-right: 2%;  width: 96%;  display: none;}
+#blockModi{float: right;margin-top: 84px; margin-right: 20px; display: none;  }
+#btnModify{cursor:pointer;}
+#btnDelete{cursor:pointer; margin-left: 20px;}
+
+textarea.autosize {min-height: 100px;}
+.balloon {
+    display: inline-block;
+    position: relative;
+    border-radius: 5px;
+}
+.balloon:before {
+    content: '';
+    position: absolute;
+    border-bottom: 60px solid #ffffff;
+    border-right: 30px solid transparent;
+    border-left: 30px solid transparent;
+    top: -40px;
+    left: 80px;
+    border-radius: 5px;
+}
+
+

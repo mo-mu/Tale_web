@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <title>Tale</title>
     <link rel="shortcut icon" type="image/x-icon" href="../img/big_fox_img.ico" />
-    <style>
-        @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
+    <link rel="stylesheet" type="text/css" href="../css/Fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Splash.css"/>
 
-        html, body{width: 100%; height: 100%; margin: auto 0; background: #070E20;}
-        p {color : #ffffff; font-size:30pt; font-family: SeoulNamsanCL;}
+</head>
+<body >
 
-        .para{width: 100%; height: 100%; top:0; left:0; text-align:center; position:absolute;}
-        .para  .context{display:inline-block;vertical-align:middle; text-align:center;}
-        .para .blank{display:inline-block;width:0;height:100%;vertical-align:middle;}
-    </style>
+    <div class="para">
+        <span class="context" >
+        <p id="text">"네가 오후 네 시에 온다면 <br>
+            난 세 시부터 행복해지기 시작할거야"</p>
+        </span>
+
+        <span class="blank"></span>
+    </div>
 
 
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
@@ -23,40 +27,34 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script language="javascript">
-        $(document).ready(function(){
+    <script language="javascript" type="text/javascript">
 
-            var config = {
-                apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
-                authDomain: "tale-97db4.firebaseapp.com",
-                databaseURL: "https://tale-97db4.firebaseio.com",
-                storageBucket: "tale-97db4.appspot.com",
-                messagingSenderId: "995377513212"
-            };
+        var config = {
+            apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
+            authDomain: "tale-97db4.firebaseapp.com",
+            databaseURL: "https://tale-97db4.firebaseio.com",
+            storageBucket: "tale-97db4.appspot.com",
+            messagingSenderId: "995377513212"
+        };
+        try{
             firebase.initializeApp(config);
 
             $("p").hide().fadeIn(2000,function () {
-            	$("p").fadeOut(1000,function () {
-	            	firebase.auth().onAuthStateChanged(function (user) {
-		                    	if(user)    //로그인 돼있을 때
-		                        	location.href="Main.html"  // 페이지 이동...
-		                    	else        //로그인 안돼있을 때
-		                        	location.href="Preview.html"  // 페이지 이동
-	                	});
-		           });
-              });
-        });
+                console.error("들어옴");
+                $("p").fadeOut(1000,function () {
+                    firebase.auth().onAuthStateChanged(function (user) {
+                        if(user)    //로그인 돼있을 때
+                            location.href="Main.html"  // 페이지 이동...
+                        else        //로그인 안돼있을 때
+                            location.href="Preview.html"  // 페이지 이동
+                    });
+                });
+            });
+        }
+        catch (error){
+            console.error(error);
+        }
+
     </script>
-</head>
-<body>
-
-    <div class="para">
-        <span class="context" >
-        <p>"네가 오후 네 시에 온다면 <br>
-            난 세 시부터 행복해지기 시작할거야"</p>
-        </span>
-
-        <span class="blank"></span>
-    </div>
 </body>
 </html>
