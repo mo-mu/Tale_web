@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Tale</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/big_fox_img.ico" />
+    <link rel="stylesheet" type="text/css" href="../css/Fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/SignUp.css"/>
+</head>
+<body>
+    <div class="para">
+        <div class="context">
+            <p>아래 정보를 입력하고, 3초 만에 가입하세요.</p>
 
-    <style>
-        @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
+            <div>
+                <p class="edit_title">이메일</p> <input class="edit" type="email" id="email"><br>
+                <p class="edit_title">비밀번호</p> <input class="edit" type="password" id="password"><br>
+                <p class="edit_title">닉네임</p> <input class="edit" id="nickname" type="text"><br>
+                <button id="btnSubmit" onclick="btSubmitclick()" >회원가입</button>
+            </div>
 
-        html, body {width: 100%; height: 100%; margin: auto 0; background: #070E20;}
-        p {color : #ffffff; font-size : 25px; font-family: SeoulNamsanCL;}
-        input {width: 430px; height: 60px; border-radius: 30px; margin-bottom: 46px; font-family: SeoulNamsanCL; font-size: 20pt;}
+        </div>
 
-        #nickname{margin-bottom: 70px;}
-        #btnSubmit{background: #2bdaaf; border-color: #2bdaaf; border-radius: 30px; width: 286px; height: 56px; font-family: SeoulNamsanCL; font-size: 25pt; color: #FFFFFF;}
-
-        .edit_title{font-size: 17pt; text-align:left;margin-bottom: 16px; margin-top: 46px; margin-left: 20px;}
-        .edit{background: #070E20; border-color: #FFFFFF; color:#ffffff; padding-left: 30px;}
-        .para{width: 100%; height: 100%; top:0; left:0; text-align:center; position:absolute;}
-        .para  .context{display:inline-block;vertical-align:middle; text-align:center;}
-        .para .blank{display:inline-block;width:0;height:100%;vertical-align:middle;}
-    </style>
+        <div class="blank"></div>
+    </div>
 
 
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
@@ -42,65 +45,40 @@
         firebase.initializeApp(config);
 
 
-        window.onload = function () {
-            var btnSubmit = document.getElementById("btnSubmit");
-            btnSubmit.addEventListener("click", function () {
-                var editEmail = document.getElementById("email");
-                var editPassword = document.getElementById("password");
-                var editNickname = document.getElementById("nickname");
+        var btnSubmit = document.getElementById("btnSubmit");
 
-                const auth = firebase.auth();
-                auth.createUserWithEmailAndPassword(editEmail.value, editPassword.value).then(function () {
-                    var w;
-                    if(typeof(Worker) !== 'undefined') {
-                        if(typeof (w) =='undefined'){
-                            w = new Worker('../js/SignUpWorker.js');
-                            w.postMessage([firebase.auth().currentUser.uid,editEmail.value,editNickname.value]);
-                            w.onmessage = function (event) {
-                                if(event.data==="finish!!") {
-                                    workerEnd();
-                                }
-                            }
-                        } else{
-                        }
+        function btSubmitclick () {
+            var editEmail = document.getElementById("email");
+            var editPassword = document.getElementById("password");
+            var editNickname = document.getElementById("nickname");
 
-                    }else{
-                        alert("not supported this web browser!!");
-                    }
-                    function workerEnd() {
-                        w.terminate();
-                        w = undefined;
-                        location.href="Main.html";
-                    }
-                }).catch(function(error) {
-                    // Handle Errors here.
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    isSignUped=false;
-                    alert(errorCode +" : "+errorMessage);
-                    // ...
-                })
-           });
+            const auth = firebase.auth();
+            auth.createUserWithEmailAndPassword(editEmail.value, editPassword.value).then(function () {
 
+                dataUpload(auth.currentUser.uid);
+            }).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorCode + " : " + errorMessage);
+                // ...
+            });
+
+            function dataUpload(curUid) {
+
+                var ref = firebase.database().ref('user/' + curUid);
+                ref.set({
+                    email: editEmail.value,
+                    nickname: editNickname.value
+                },function (error) {
+                    if(!error)
+                        location.href="Main.html"; // 페이지 이동..
+                    else
+                        alert(error.value);
+                });
+            };
         }
 
     </script>
-</head>
-<body>
-    <div class="para">
-        <div class="context">
-            <p>아래 정보를 입력하고, 3초 만에 가입하세요.</p>
-
-            <div>
-                <p class="edit_title">이메일</p> <input class="edit" type="email" id="email"><br>
-                <p class="edit_title">비밀번호</p> <input class="edit" type="password" id="password"><br>
-                <p class="edit_title">닉네임</p> <input class="edit" id="nickname" type="text"><br>
-                <button id="btnSubmit">회원가입</button>
-            </div>
-
-        </div>
-
-        <div class="blank"></div>
-    </div>
 </body>
 </html>

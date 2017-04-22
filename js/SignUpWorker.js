@@ -20,6 +20,7 @@ self.onmessage = function (event) {
 
     var database = firebase.database();
 
+    console.log(event.data[1]);
    database.ref('user/' + event.data[0]).set({
        email:event.data[1],
        nickname:event.data[2]
