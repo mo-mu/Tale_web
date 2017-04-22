@@ -1,5 +1,5 @@
 html, body{width: 100%; height: 100%; margin: auto 0; background: #070E20;}
-p {color : #ffffff; font-size:30pt; font-family: SeoulNamsanCL;}
+p {color : #ffffff; font-size:30pt; font-family: 'Noto Sans', sans-serif;}
 
 .para{width: 100%; height: 100%; top:0; left:0; text-align:center; position:absolute;}
 .para  .context{display:inline-block;vertical-align:middle; text-align:center;}

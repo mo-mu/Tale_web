@@ -4,7 +4,7 @@ p{width:100%; height:100%;}
 #body{width:96%;  margin-left: 2%; margin-right: 2%;  z-index: 10; }
 #divNothing {width:80%; height:80%; margin: auto;  text-align: center; margin-top: 10%; display: none; }
 #imgNothing {margin: auto; width: 20%; height: auto;}
-#txtNothing {color: #FFFFFF; font-family: YanoljaYacheRegular; font-size: 40px; text-align: center; }
+#txtNothing {color: #FFFFFF; font-family: 'Nanum Myeongjo', serif; font-size: 40px; text-align: center; }
 
 #curPaging {float:left;}
 #paging{}
@@ -12,9 +12,9 @@ p{width:100%; height:100%;}
 
 #arrow{width: 22px; height: 22px;}
 #arrowHidden{width: 22px; height: 22px; visibility: hidden;}
-#txtQuestion{font-family: YanoljaYacheRegular; text-size: 25px;}
-#txtTime{font-family: SeoulNamsanCL; text-size:18px;}
-#txtAnswer{font-family: SeoulNamsanCL; text-size:20px;}
+#txtQuestion{font-family: 'Nanum Myeongjo', serif; text-size: 25px;}
+#txtTime{font-family: 'Noto Sans', sans-serif; text-size:18px;}
+#txtAnswer{font-family: 'Noto Sans', sans-serif; text-size:20px;}
 
 ul{text-align: left; list-style:none; padding-left:0px;  min-height:80%;}
 li {color: #FFFFFF; width:100%; text-align: left; margin-bottom: 50px; cursor: pointer;}

@@ -1,10 +1,10 @@
 html, body {width: 100%; height: 100%; margin: auto 0; background: #070E20;}
-p {color : #ffffff; font-size : 25px; font-family: SeoulNamsanCL;}
-input {width: 430px; height: 60px; border-radius: 30px; margin-bottom: 46px; font-family: SeoulNamsanCL; font-size: 20pt;}
+p {color : #ffffff; font-size : 25px; font-family: 'Noto Sans', sans-serif;}
+input {width: 430px; height: 60px; border-radius: 30px; margin-bottom: 46px; font-family: 'Noto Sans', sans-serif; font-size: 20pt;}
 
 #nickname{margin-bottom: 70px;}
 #btnSubmit{background: #2bdaaf; border-color: #2bdaaf; border-radius: 30px; width: 286px; height: 56px;
-    font-family: SeoulNamsanCL; font-size: 25pt; color: #FFFFFF; cursor: pointer;}
+    font-family: 'Noto Sans', sans-serif; font-size: 25pt; color: #FFFFFF; cursor: pointer;}
 
 .edit_title{font-size: 17pt; text-align:left;margin-bottom: 16px; margin-top: 46px; margin-left: 20px;}
 .edit{background: #070E20; border-color: #FFFFFF; color:#ffffff; padding-left: 30px;}
