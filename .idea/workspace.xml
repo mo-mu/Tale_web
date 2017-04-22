@@ -4,6 +4,7 @@
     <list default="true" id="0fb35cab-b6a8-4852-8d0c-87bb4ec04989" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/List.html" afterPath="$PROJECT_DIR$/html/List.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/LogIn.html" afterPath="$PROJECT_DIR$/html/LogIn.html" />
     </list>
     <ignored path="$PROJECT_DIR$/../untitled/.tmp/" />
     <ignored path="$PROJECT_DIR$/../untitled/temp/" />
@@ -81,7 +82,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -93,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/Main.css">
+      <file leaf-file-name="LogIn.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/LogIn.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+            <state relative-caret-position="105">
+              <caret line="7" column="59" lean-forward="false" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -161,7 +162,6 @@
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/html/Splash.html" />
-        <option value="$PROJECT_DIR$/html/LogIn.html" />
         <option value="$PROJECT_DIR$/js/SignUpWorker.js" />
         <option value="$PROJECT_DIR$/html/SignUp.html" />
         <option value="$PROJECT_DIR$/js/ChangeQuestion.js" />
@@ -171,6 +171,7 @@
         <option value="$PROJECT_DIR$/html/Main.html" />
         <option value="$PROJECT_DIR$/html/Download.html" />
         <option value="$PROJECT_DIR$/html/list.html" />
+        <option value="$PROJECT_DIR$/html/LogIn.html" />
       </list>
     </option>
   </component>
@@ -583,16 +584,24 @@
       <option name="project" value="LOCAL" />
       <updated>1492850698884</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="0. List페이지에 누락된 코드 수정&#10;1. 네비게이션 드로어에서 설정을 로그아웃으로 변경">
+      <created>1492850877438</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1492850877438</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99273000" />
+    <option name="totallyTimeSpent" value="99400000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21805556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21805556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858709" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33411488" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -649,7 +658,8 @@
     <MESSAGE value="0. drawer 이상한 부분 수정." />
     <MESSAGE value="0. 회원가입 완료." />
     <MESSAGE value="0. List페이지에서 리스트 항목 선택 시, 항목에 맞는 detail페이지로 이동" />
-    <option name="LAST_COMMIT_MESSAGE" value="0. List페이지에서 리스트 항목 선택 시, 항목에 맞는 detail페이지로 이동" />
+    <MESSAGE value="0. List페이지에 누락된 코드 수정&#10;1. 네비게이션 드로어에서 설정을 로그아웃으로 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="0. List페이지에 누락된 코드 수정&#10;1. 네비게이션 드로어에서 설정을 로그아웃으로 변경" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -689,19 +699,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="779">
           <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-          <folding>
-            <marker date="1492836106000" expanded="true" signature="327:2410" ph="..." />
-            <marker date="1492836106000" expanded="true" signature="346:722" ph="..." />
-            <marker date="1492836106000" expanded="true" signature="372:684" ph="..." />
-            <marker date="1492836106000" expanded="true" signature="406:672" ph="..." />
-            <marker date="1492836106000" expanded="true" signature="1152:2402" ph="..." />
-            <marker date="1492836106000" expanded="true" signature="1186:2393" ph="{...}" />
-            <marker date="1492836106000" expanded="true" signature="1196:1287" ph="//..." />
-            <marker date="1492836106000" expanded="true" signature="1309:1598" ph="{&quot;apiKey&quot;: &quot;AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs&quot;...}" />
-            <marker date="1492836106000" expanded="true" signature="1785:2385" ph="{...}" />
-            <marker date="1492836106000" expanded="true" signature="2027:2106" ph="{...}" />
-            <marker date="1492836106000" expanded="true" signature="2144:2372" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -956,26 +954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/LogIn.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="34" column="33" lean-forward="true" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
-          <folding>
-            <marker date="1492836106000" expanded="true" signature="327:2410" ph="..." />
-            <marker date="1492836106000" expanded="true" signature="346:722" ph="..." />
-            <marker date="1492836106000" expanded="true" signature="372:684" ph="..." />
-            <marker date="1492836106000" expanded="true" signature="406:672" ph="..." />
-            <marker date="1492836106000" expanded="true" signature="1152:2402" ph="..." />
-            <marker date="1492836106000" expanded="true" signature="1186:2393" ph="{...}" />
-            <marker date="1492836106000" expanded="true" signature="1196:1287" ph="//..." />
-            <marker date="1492836106000" expanded="true" signature="1309:1598" ph="{&quot;apiKey&quot;: &quot;AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs&quot;...}" />
-            <marker date="1492836106000" expanded="true" signature="1785:2385" ph="{...}" />
-            <marker date="1492836106000" expanded="true" signature="2027:2106" ph="{...}" />
-            <marker date="1492836106000" expanded="true" signature="2144:2372" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/List.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1079,6 +1057,14 @@
           <folding>
             <element signature="e#639#646#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/LogIn.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="59" lean-forward="false" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
