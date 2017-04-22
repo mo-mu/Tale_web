@@ -3,275 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <title>Tale</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/big_fox_img.ico" />
 
-    <style>
-        @font-face {font-family: 'YanoljaYacheRegular'; src: url(../css/fonts/YanoljaYacheRegular.ttf) format('truetype');}
-        @font-face {font-family: 'SeoulNamsanCL'; src: url(../css/fonts/SeoulNamsanCL.ttf) format('truetype');}
-
-
-        html, body {width: 100%; height: 100%; margin: auto 0; background: #070E20; }
-        header{width: 60%; margin: auto 0; position: absolute; left: 50%; transform: translateX(-50%);float:left; display: block;}
-        div{width: 60%; color : #ffffff; margin: auto 0; }
-        h3 {color : #464646; font-size : 25px; font-family: YanoljaYacheRegular;}
-
-        #logo{float: left; margin-left: 50px;}
-      /* The side navigation menu */
-        .sidenav {
-            height: 100%; /* 100% Full-height */
-            width: 0; /* 0 width - change this with JavaScript */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Stay on top */
-            top: 0;
-            left: 0;
-            background-color: #111; /* Black*/
-            overflow-x: hidden; /* Disable horizontal scroll */
-            padding-top: 60px; /* Place content 60px from the top */
-            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-        }
-
-        /* The navigation menu links */
-        .sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s
-        }
-
-        /* When you mouse over the navigation links, change their color */
-        .sidenav a:hover, .offcanvas a:focus{
-            color: #f1f1f1;
-        }
-
-        /* Position and style the close button (top right corner) */
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        /* The side navigation menu */
-        .sidenav {
-            height: 100%; /* 100% Full-height */
-            width: 0; /* 0 width - change this with JavaScript */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Stay on top */
-            top: 0;
-            left: 0;
-            background-color: #111; /* Black*/
-            overflow-x: hidden; /* Disable horizontal scroll */
-            padding-top: 60px; /* Place content 60px from the top */
-            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-        }
-
-        /* The navigation menu links */
-        .sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s
-        }
-
-        /* When you mouse over the navigation links, change their color */
-        .sidenav a:hover, .offcanvas a:focus{
-            color: #f1f1f1;
-        }
-
-        /* Position and style the close button (top right corner) */
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        p.round2 {
-            border: 5px solid white;
-            border-radius: 8px;
-            width: 500px;
-            height: 80px;
-            padding: 10px;
-            margin: 50px;
-            vertical-align: middle;
-        }
-
-        .center {
-            text-align: center;
-        }
-
-
-        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-        #main {
-            width: 100%; height: 95%;
-            transition: margin-left .5s;
-            padding: 20px;
-        }
-
-        #kk {
-            width: 100%; height: 95%;
-            left: 50%; transform: translateX(-50%);
-        }
-
-        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-        @media screen and (max-height: 450px) {
-            .sidenav {padding-top: 15px;}
-            .sidenav a {font-size: 18px;}
-        }
-
-
-        .para .blank{display:inline-block;width:0;height:100%;vertical-align:middle;}
-
-    </style>
-
-    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <script>
-
-        // Initialize Firebase
-        // TODO: Replace with your project's customized code snippet
-        var config = {
-            apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
-            authDomain: "tale-97db4.firebaseapp.com",
-            databaseURL: "https://tale-97db4.firebaseio.com",
-            storageBucket: "tale-97db4.appspot.com",
-            messagingSenderId: "995377513212"
-        };
-        firebase.initializeApp(config);
-
-        var btnMenu = document.getElementById("btnMenu");
-        var changeQuestion = document.getElementById("change_question");
-        var btnSave = document.getElementById("btnSave");
-        function getQuestion() {
-            var database = firebase.database();
-            var questionCout = 100;             //질문 갯수
-            var qId = Math.floor((Math.random()*questionCout));     //랜덤돌림
-            var starCountRef = database.ref('question/' + qId + '/q');
-            starCountRef.on('value', function(snapshot) {
-                document.getElementById("question").innerHTML = snapshot.val();
-            });
-        };
-
-        function save() {
-            alert(document.getElementById("insert").value);
-        }
-        changeQuestion.onclick = getQuestion();     //질문 변경 코드
-        btnMenu.onclick = openNav();
-        btnSave.onclick = save();
-    </script>
-
-    <script>
-
-        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-            document.body.style.backgroundColor = "rgba(0,0,0,0.8)";
-        }
-
-        /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-            document.body.style.backgroundColor ="#070E20";
-        }
-    </script>
+    <link rel="stylesheet" type="text/css" href="../css/List.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Loading.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/BodyHeaderDrawer.css"/>
 
 </head>
-<body>
+<body onload="getDatas()">
 
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">글쓰기</a>
-    <a href="#">지난이야기</a>
-    <a href="#">설정</a>
-    <a href="#">앱 다운로드</a>
-</div>
 
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-<div id="main" >
-    <header>
+    <!-- 네비게이션 드로어-->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <a href="Main.html">글쓰기</a>
+        <a href="#" onclick="return false">지난이야기</a>
+        <a href="Setup.html">설정</a>
+        <a href="Download.html">앱 다운로드</a>
+    </div>
+    <!-- // 네비게이션 드로어-->
+
+    <header id="header">
         <img src="../img/menu_btn.png" id="btnMenu" width="50px" height="50px" onclick="openNav()" />
-        <br>
-        <p class="round2">
-        <img src="../img/big_fox_img.png" id="logo" width="80px" height="64px"/>
-           이전에 대답한 개수만큼 ㅇ으로 표시 돼요.</p>
     </header>
+    <div id="main">
+        <!--헤더 -->
+        <!-- //헤더-->
 
-    <ul>
-        <li>
-                <div id="">
-            당신에게 가장 기억에 남는 여행지는 어디인가요?
-            <img src="../img/star_gray_img.png" id="" width="20px" height="20px"/>
-                 </div>
 
-                <br/>
-
-             <div id="">
-                 날짜
-             </div>
-
-                <br/>
-
-              <div id="">
-                  답변
-              </div>
-        </li>
-        <li>
-            <div id="">
-               나의 장점은 무엇이 있을까요?
-                <img src="../img/star_gray_img.png" id="" width="20px" height="20px"/>
+        <!-- 바디-->
+        <div id="body" >
+            <div id = "divNothing">
+                <p>
+                    <img id = "imgNothing" src="../img/cryingfox_img.png" />
+                    <h4 id = "txtNothing" >지난 이야기가 없어요...ㅠㅠ</h4>
+                </p>
             </div>
+            <div id="divNonNothing">
+                <ul class="mylist" id="lists">
+                </ul>
 
-            <br/>
-
-            <div id="">
-                날짜
+                <div class="pagination" id="paging"></div>
             </div>
+        </div>
+        <!-- //바디-->
+    </div>
 
-            <br/>
-
-            <div id="">
-                답변
-            </div>
-        </li>
-        <li>
-            <div id="">
-                카페에서 즐겨마시는 음료는 무엇인가요?
-                <img src="../img/star_gray_img.png" id="" width="20px" height="20px"/>
-            </div>
-
-            <br/>
-
-            <div id="">
-                날짜
-            </div>
-
-            <br/>
-
-            <div id="">
-                답변
-            </div>
-        </li>
-    </ul>
-</div>
-
-
-
-
-
-
-
+    <div id="square">
+        <div id="spin"></div>
+    </div>
 </body>
+
+
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    var config = {
+        apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
+        authDomain: "tale-97db4.firebaseapp.com",
+        databaseURL: "https://tale-97db4.firebaseio.com",
+        storageBucket: "tale-97db4.appspot.com",
+        messagingSenderId: "995377513212"
+    };
+    firebase.initializeApp(config);
+
+    function Request(){
+        var requestParam ="";
+
+        //getParameter 펑션
+        this.getParameter = function(param){
+            //현재 주소를 decoding
+            var url = unescape(location.href);
+            //파라미터만 자르고, 다시 &그분자를 잘라서 배열에 넣는다.
+            var paramArr = (url.substring(url.indexOf("?")+1,url.length)).split("&");
+
+            for(var i = 0 ; i < paramArr.length ; i++){
+                var temp = paramArr[i].split("="); //파라미터 변수명을 담음
+
+                if(temp[0].toUpperCase() == param.toUpperCase()){
+                    // 변수명과 일치할 경우 데이터 삽입
+                    requestParam = paramArr[i].split("=")[1];
+                    break;
+                }
+            }
+            return requestParam;
+        }
+    }
+
+
+    function getDatas() {
+        var request = new Request();
+        var gCount = request.getParameter('group');
+        var aCount;
+        let listCount = 3;
+
+        firebase.auth().onAuthStateChanged(function (user) {
+            if(user){    //로그인 돼있을 때
+                var time, question, answer;
+                var lists = firebase.database().ref('Answer/' + user.uid + "");
+                if(lists==null){
+                    document.getElementById("square").style.display="none";
+                    document.getElementById("divNonNothing").style.display = "none";
+                    document.getElementById("divNothing").style.display = "block";
+                }
+                else{
+                    //페이징 만들기 위해 실행
+                    lists.once('value').then(function (snapshot) {
+                        if(snapshot.val()==null) {          //처음 회원가입한 경우(리스트가 없을 경우)
+                            document.getElementById("square").style.display = "none";
+                            document.getElementById("divNonNothing").style.display = "none";
+                            document.getElementById("divNothing").style.display = "block";
+
+                        }else{                  //이미 회원가입하고 (있을 경우)
+                            aCount = Number(snapshot.val().length);
+
+                            if((Number(gCount)-1)>=1)       //뒤로
+                                $('#paging').append('<a id ="befer" href="./List.html?group='+(Number(gCount)-1)+ '"><img id="arrow" src="../img/before_btn.png"/></a>');
+
+                            for(var i= 1;i<=(Math.ceil(aCount/listCount));i++){             //페이징 넘버들
+                                console.error(i+"    "+gCount);
+                                $('#paging').append('<a id ="curPaging'+i+'" href=./List.html?group='+i+'>'+i+'</a>');
+                                if(Number(gCount)===i){
+                                    console.error(i+"    "+gCount);
+                                    $('#curPaging'+i).addClass('active');
+                                }
+                            }
+
+                            if((Number(gCount)+1)<=(Math.ceil(aCount/listCount)))           //앞으로
+                                $('#paging').append('<a id ="after" href="./List.html?group='+(Number(gCount)+1)+ '"><img id= "arrow" src="../img/after_btn.png"/></a>');
+                        }
+                    });
+
+
+                    //리스트 불러옴
+                    lists.on('child_added', function (data) {
+                        if (data) {     //데이터가 있다면
+                            document.getElementById("spin").style.display="none";
+                            document.getElementById("square").style.display="none";
+                            document.getElementById("divNonNothing").style.display = "block";
+                            document.getElementById("divNothing").style.display = "none";
+                            question = data.val().question;
+                            answer = data.val().answer;
+                            time = data.val().created_at;
+                            if((listCount*(gCount-1))<= data.val().aId && data.val().aId <(listCount*gCount)) {
+                                $('#lists').append(' <li  id="blQuestion" onclick="gotoDetail()">' +'<div><h3 id="txtQuestion">' + question + '</h3> '+
+                                    ' <span id="txtTime">' + time + '</span> <p id="txtAnswer">' + answer + '</p></div></li> <br>');
+                            }
+                        } else {    //없다면
+                            document.getElementById("spin").style.display="none";
+                            document.getElementById("square").style.display="none";
+                            document.getElementById("spin").style.display="none";
+                            document.getElementById("square").style.display="none";
+                            document.getElementById("divNonNothing").style.display = "none";
+                            document.getElementById("divNothing").style.display = "block";
+                        }
+                    });
+
+                }
+
+
+            }
+            else  {      //로그인 안돼있을 때
+                location.href="Preview.html"  // 페이지 이동
+            }
+        });
+
+    }
+
+    function gotoDetail() {
+        location.href="Detail.html";
+    }
+
+    /* Set the width of the side navigation to 250px */
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "20%";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }</script>
+
 </html>
