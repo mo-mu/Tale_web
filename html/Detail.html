@@ -17,7 +17,7 @@
 
     <a href="#" onclick="return false">글쓰기</a>
     <a href="List.html?group=1">지난이야기</a>
-    <a href="Setup.html">설정</a>
+    <a href="#" onclick="logout()">로그아웃</a>
     <a href="Download.html">앱 다운로드</a>
 </div>
 
@@ -83,6 +83,31 @@
     var qId, question,userName, aId, answer, created_at;
 
 
+    function Request(){
+        var requestParam ="";
+
+        //getParameter 펑션
+        this.getParameter = function(param){
+            //현재 주소를 decoding
+            var url = unescape(location.href);
+            //파라미터만 자르고, 다시 &그분자를 잘라서 배열에 넣는다.
+            var paramArr = (url.substring(url.indexOf("?")+1,url.length)).split("&");
+
+            for(var i = 0 ; i < paramArr.length ; i++){
+                var temp = paramArr[i].split("="); //파라미터 변수명을 담음
+
+                if(temp[0].toUpperCase() == param.toUpperCase()){
+                    // 변수명과 일치할 경우 데이터 삽입
+                    requestParam = paramArr[i].split("=")[1];
+                    break;
+                }
+            }
+            return requestParam;
+        }
+    }
+    var request = new Request();
+    aId = request.getParameter('aId');
+
     function checkLogin() {
         document.getElementById("insert").value = "";
         document.getElementById("insert").placeholder = "이곳에 당신의 이야기를 적어보세요.";
@@ -102,81 +127,44 @@
         });
     }
 
-    function getQuestion() {
-
-        var database = firebase.database();
-        var questionCout = 100;             //질문 갯수
-        qId = Math.floor((Math.random()*questionCout));     //랜덤돌림
-        console.log(qId);
-
-        var starCountRef = database.ref('question/' + qId + '/q');
-        starCountRef.on('value', function(snapshot) {
-            question = snapshot.val();
-            document.getElementById("question").innerHTML = userName+"님, "+question;
-            document.getElementById("insert").value = "";
-            document.getElementById("insert").placeholder = "이곳에 당신의 이야기를 적어보세요.";
-            document.getElementById("square").style.display = "none";
-            document.getElementById("body").style.display = "block";
-            document.getElementById("btnSave").style.display = "block";
-        });
-    }
 
     function getData() {
-        var date = new Date();
-        var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
-        ref.on('value',function (snapshot) {
-            if(snapshot.val()==null){          //처음 가입했을 때
-                document.getElementById("blockModi").style.display = "none";
-                document.getElementById("blockBtn").style.display = "block";
-                document.getElementById("changeQuestion").style.display = "block";
-                getQuestion();
-            }
-        });
+        var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid+'/'+aId);
 
         //가입한 후 글을 쓴 사람인 경우(ref경로로 글이 있는 경우)
-        ref.limitToLast(1).on('child_added', function(snapshot) {
-            try{
-                var dat = snapshot.val().created_at;
-                if(dat == (''+date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate())){        //오늘 일기 쓴 것 이 있을 경우
-                    console.error(dat);
-                    console.error(snapshot.val().aId + snapshot.val().answer);
-                    console.error(snapshot.val().qId + snapshot.val().question);
+        ref.on('value', function(snapshot) {
+                try{
+                    console.log(""+snapshot.val());
+                        console.error(snapshot.val().aId + snapshot.val().answer);
+                        console.error(snapshot.val().qId + snapshot.val().question);
 
-                    question = snapshot.val().question;
-                    aId = snapshot.val().aId;
-                    answer = snapshot.val().answer;
-                    created_at = dat;
-                    qId = snapshot.val().qId;
+                        question = snapshot.val().question;
+                        aId = snapshot.val().aId;
+                        answer = snapshot.val().answer;
+                        qId = snapshot.val().qId;
 
-                    document.getElementById("question").innerHTML = userName+"님, "+snapshot.val().question;
-                    document.getElementById("insert").value = snapshot.val().answer;
-                    document.getElementById("blockModi").style.display = "block";
-                    document.getElementById("blockBtn").style.display = "block";
-                    document.getElementById("changeQuestion").style.display = "none";
-                    document.getElementById("square").style.display = "none";
-                    document.getElementById("body").style.display = "block";
-                    document.getElementById("btnSave").style.display = "none";
-                }else{                                                                                  //오늘 일기 없을 경우
+                        document.getElementById("question").innerHTML = userName+"님, "+snapshot.val().question;
+                        document.getElementById("insert").value = snapshot.val().answer;
+                        document.getElementById("blockModi").style.display = "block";
+                        document.getElementById("blockBtn").style.display = "block";
+                        document.getElementById("changeQuestion").style.display = "none";
+                        document.getElementById("square").style.display = "none";
+                        document.getElementById("body").style.display = "block";
+                        document.getElementById("btnSave").style.display = "none";
 
-                    document.getElementById("blockModi").style.display = "none";
-                    document.getElementById("blockBtn").style.display = "block";
-                    document.getElementById("changeQuestion").style.display = "block";
-                    getQuestion();
+
+                }catch (err){
+                     console.error(err);
+                     alert("잘못된 경로입니다");
+                     history.back();
                 }
-
-            }catch (err){
-            }
         });
     }
 
     function modiPara() {
         var data = {
-            aId : (aId),
             answer : document.getElementById("insert").value,
-            created_at : created_at,
-            qId : qId,
-            question : question
-        }
+         }
         var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid+'/'+aId);
         ref.update(data);
         alert("수정되었습니다.");
@@ -197,42 +185,6 @@
         });
     }
 
-
-    function sendingData(aId) {
-        var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
-        console.log("최후 "+ (aId));
-        var child = ref.child((aId));
-        var date = new Date();
-        child.set({
-            aId : (aId),
-            answer : document.getElementById('insert').value,
-            created_at : date.getFullYear()+"/ "+(date.getMonth()+1)+"/ "+date.getDate(),
-            qId : qId,
-            question : question
-        },function (error) {
-            if(!error)
-                alert("저장되었습니다.");
-            else
-                alert(error.value);
-        });
-    }
-
-    function savePara() {
-        var ref = firebase.database().ref('Answer/' + firebase.auth().currentUser.uid);
-
-        ref.once('value').then(function (snapshot) {
-            console.log(snapshot.val());
-            try{
-                var aId = snapshot.val().length;
-                console.log(aId);
-                sendingData(aId);
-            }catch (err){
-
-                sendingData(0);
-            }
-
-        });
-    }
 
     function logout() {
         firebase.auth().signOut().then(function () {
