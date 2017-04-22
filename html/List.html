@@ -20,7 +20,7 @@
 
         <a href="Main.html">글쓰기</a>
         <a href="#" onclick="return false">지난이야기</a>
-        <a href="Setup.html">설정</a>
+        <a href="#" onclick="logout()">로그아웃</a>
         <a href="Download.html">앱 다운로드</a>
     </div>
     <!-- // 네비게이션 드로어-->
@@ -106,7 +106,7 @@
 
         firebase.auth().onAuthStateChanged(function (user) {
             if(user){    //로그인 돼있을 때
-                var time, question, answer;
+                var time, question, answer, curaId;
                 var lists = firebase.database().ref('Answer/' + user.uid + "");
                 if(lists==null){
                     document.getElementById("square").style.display="none";
@@ -126,18 +126,21 @@
 
                             if((Number(gCount)-1)>=1)       //뒤로
                                 $('#paging').append('<a id ="befer" href="./List.html?group='+(Number(gCount)-1)+ '"><img id="arrow" src="../img/before_btn.png"/></a>');
+                            else if((Number(gCount)-1)==0)
+                                $('#paging').append('<a><img id="arrowHidden" src="../img/before_btn.png"/></a>');
 
                             for(var i= 1;i<=(Math.ceil(aCount/listCount));i++){             //페이징 넘버들
-                                console.error(i+"    "+gCount);
-                                $('#paging').append('<a id ="curPaging'+i+'" href=./List.html?group='+i+'>'+i+'</a>');
+                                 $('#paging').append('<a id ="curPaging'+i+'" href=./List.html?group='+i+'>'+i+'</a>');
                                 if(Number(gCount)===i){
-                                    console.error(i+"    "+gCount);
                                     $('#curPaging'+i).addClass('active');
                                 }
                             }
 
                             if((Number(gCount)+1)<=(Math.ceil(aCount/listCount)))           //앞으로
                                 $('#paging').append('<a id ="after" href="./List.html?group='+(Number(gCount)+1)+ '"><img id= "arrow" src="../img/after_btn.png"/></a>');
+                            else
+                                $('#paging').append('<a><img id="arrowHidden" src="../img/before_btn.png"/></a>');
+
                         }
                     });
 
@@ -152,8 +155,10 @@
                             question = data.val().question;
                             answer = data.val().answer;
                             time = data.val().created_at;
-                            if((listCount*(gCount-1))<= data.val().aId && data.val().aId <(listCount*gCount)) {
-                                $('#lists').append(' <li  id="blQuestion" onclick="gotoDetail()">' +'<div><h3 id="txtQuestion">' + question + '</h3> '+
+                            curaId = data.val().aId;
+                            if((listCount*(gCount-1))<= curaId && curaId <(listCount*gCount)) {
+                                console.log(curaId);
+                                $('#lists').append(' <li  id="blQuestion" onclick="gotoDetail('+curaId+')">' +'<div><h3 id="txtQuestion">' + question + '</h3> '+
                                     ' <span id="txtTime">' + time + '</span> <p id="txtAnswer">' + answer + '</p></div></li> <br>');
                             }
                         } else {    //없다면
@@ -171,15 +176,15 @@
 
             }
             else  {      //로그인 안돼있을 때
-                location.href="Preview.html"  // 페이지 이동
+                location.href="Preview.html";  // 페이지 이동
             }
         });
 
     }
 
-    function gotoDetail() {
-        alert("준비중...");
-        console.log("준비중...");
+    function gotoDetail(curaId) {
+        console.log(curaId);
+        location.href="Detail.html?aId="+Number(curaId);
     }
 
     /* Set the width of the side navigation to 250px */
@@ -190,7 +195,6 @@
     /* Set the width of the side navigation to 0 */
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
-    }
-</script>
+    }</script>
 
 </html>

@@ -11,6 +11,7 @@ p{width:100%; height:100%;}
 #divNonNothing{width:80%; height:80%;margin-left: 30%; }
 
 #arrow{width: 22px; height: 22px;}
+#arrowHidden{width: 22px; height: 22px; visibility: hidden;}
 #txtQuestion{font-family: YanoljaYacheRegular; text-size: 25px;}
 #txtTime{font-family: SeoulNamsanCL; text-size:18px;}
 #txtAnswer{font-family: SeoulNamsanCL; text-size:20px;}
