@@ -8,10 +8,11 @@ p{width:100%; height:100%;}
 
 #curPaging {float:left;}
 #paging{}
-#divNonNothing{width:80%; height:80%;margin-left: 30%; }
+#divNonNothing{width:100%; height:80%; text-align: center; }
+#lists{ margin-left: 20%;}
 
 #arrow{width: 22px; height: 22px;}
-#arrowHidden{width: 22px; height: 22px; visibility: hidden;}
+#arrowHidden{width: 22px; height: 22px;visibility: hidden; }
 #txtQuestion{font-family: 'Nanum Myeongjo', serif; text-size: 25px;}
 #txtTime{font-family: 'Noto Sans', sans-serif; text-size:18px;}
 #txtAnswer{font-family: 'Noto Sans', sans-serif; text-size:20px;}
@@ -22,14 +23,20 @@ li {color: #FFFFFF; width:100%; text-align: left; margin-bottom: 50px; cursor: p
 .pagination {
     position: absolute;
     bottom: 0;
-    width: 100%;
-    text-align: center;
-    display: inline-block;
+    margin:0 auto;
     margin-bottom: 50px;
 }
 
 .pagination a {
     color: white;
+    float: left;  border-radius: 50%;
+
+    padding: 8px 16px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.pagination div {
     float: left;  border-radius: 50%;
 
     padding: 8px 16px;

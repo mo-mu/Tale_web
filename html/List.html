@@ -127,19 +127,19 @@
                             if((Number(gCount)-1)>=1)       //뒤로
                                 $('#paging').append('<a id ="befer" href="./List.html?group='+(Number(gCount)-1)+ '"><img id="arrow" src="../img/before_btn.png"/></a>');
                             else if((Number(gCount)-1)==0)
-                                $('#paging').append('<a><img id="arrowHidden" src="../img/before_btn.png"/></a>');
-
-                            for(var i= 1;i<=(Math.ceil(aCount/listCount));i++){             //페이징 넘버들
-                                 $('#paging').append('<a id ="curPaging'+i+'" href=./List.html?group='+i+'>'+i+'</a>');
-                                if(Number(gCount)===i){
-                                    $('#curPaging'+i).addClass('active');
+                                $('#paging').append('<div id="arrowHidden" >');
+                          if((Number(aCount)-1)>0)
+                                for(var i= 1;i<=(Math.ceil(aCount/listCount));i++){             //페이징 넘버들
+                                     $('#paging').append('<a id ="curPaging'+i+'" href=./List.html?group='+i+'>'+i+'</a>');
+                                    if(Number(gCount)===i){
+                                        $('#curPaging'+i).addClass('active');
+                                    }
                                 }
-                            }
 
                             if((Number(gCount)+1)<=(Math.ceil(aCount/listCount)))           //앞으로
                                 $('#paging').append('<a id ="after" href="./List.html?group='+(Number(gCount)+1)+ '"><img id= "arrow" src="../img/after_btn.png"/></a>');
                             else
-                                $('#paging').append('<a><img id="arrowHidden" src="../img/before_btn.png"/></a>');
+                                $('#paging').append('<div id="arrowHidden" >');
 
                         }
                     });
