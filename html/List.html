@@ -74,6 +74,12 @@
     };
     firebase.initializeApp(config);
 
+    $( window ).resize(function() {
+        var paging = document.getElementById('paging');
+        var width = (document.getElementById("divNonNothing").offsetWidth / 2) - (paging.offsetWidth / 2) ;
+        paging.style["left"] = width+"px";
+    });
+
     function Request(){
         var requestParam ="";
 
@@ -125,7 +131,7 @@
                             aCount = Number(snapshot.val().length);
 
                             if((Number(gCount)-1)>=1)       //뒤로
-                                $('#paging').append('<a id ="befer" href="./List.html?group='+(Number(gCount)-1)+ '"><img id="arrow" src="../img/before_btn.png"/></a>');
+                                $('#paging').append('<a id ="before" href="./List.html?group='+(Number(gCount)-1)+ '"><img id="arrow" src="../img/before_btn.png"/></a>');
                             else if((Number(gCount)-1)==0)
                                 $('#paging').append('<div id="arrowHidden" >');
                           if((Number(aCount)-1)>0)
@@ -141,6 +147,10 @@
                             else
                                 $('#paging').append('<div id="arrowHidden" >');
 
+                            var paging = document.getElementById('paging');
+                            var width = (document.getElementById("divNonNothing").offsetWidth / 2) - (paging.offsetWidth / 2) ;
+                            paging.style["left"] = width+"px";
+                            console.log("h1!!" + Number((document.getElementById("divNonNothing").offsetWidth ) )+"        "+ Number( (paging.offsetWidth / 2) ));
                         }
                     });
 
@@ -148,6 +158,9 @@
                     //리스트 불러옴
                     lists.on('child_added', function (data) {
                         if (data) {     //데이터가 있다면
+
+                         //   console.log(paging.width);
+
                             document.getElementById("spin").style.display="none";
                             document.getElementById("square").style.display="none";
                             document.getElementById("divNonNothing").style.display = "block";
