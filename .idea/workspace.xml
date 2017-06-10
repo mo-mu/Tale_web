@@ -3,17 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0fb35cab-b6a8-4852-8d0c-87bb4ec04989" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/Download.css" afterPath="$PROJECT_DIR$/css/Download.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/List.css" afterPath="$PROJECT_DIR$/css/List.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/Loading.css" afterPath="$PROJECT_DIR$/css/Loading.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/LogIn.css" afterPath="$PROJECT_DIR$/css/LogIn.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/Main.css" afterPath="$PROJECT_DIR$/css/Main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/Preview.css" afterPath="$PROJECT_DIR$/css/Preview.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/SignUp.css" afterPath="$PROJECT_DIR$/css/SignUp.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/Download.html" afterPath="$PROJECT_DIR$/html/Download.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/LogIn.html" afterPath="$PROJECT_DIR$/html/LogIn.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/Preview.html" afterPath="$PROJECT_DIR$/html/Preview.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/SignUp.html" afterPath="$PROJECT_DIR$/html/SignUp.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/Splash.css" afterPath="$PROJECT_DIR$/css/Splash.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/../untitled/.tmp/" />
     <ignored path="$PROJECT_DIR$/../untitled/temp/" />
@@ -51,10 +42,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Download.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Download.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/Download.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="199">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Splash.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/Splash.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Splash.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/Splash.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
               <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
@@ -110,9 +131,7 @@
         <option value="$PROJECT_DIR$/css/Fonts.css" />
         <option value="$PROJECT_DIR$/css/SignUp.css" />
         <option value="$PROJECT_DIR$/css/LogIn.css" />
-        <option value="$PROJECT_DIR$/css/Splash.css" />
         <option value="$PROJECT_DIR$/html/List.html" />
-        <option value="$PROJECT_DIR$/html/Splash.html" />
         <option value="$PROJECT_DIR$/css/Main.css" />
         <option value="$PROJECT_DIR$/css/List.css" />
         <option value="$PROJECT_DIR$/html/Preview.html" />
@@ -122,6 +141,9 @@
         <option value="$PROJECT_DIR$/html/Main.html" />
         <option value="$PROJECT_DIR$/html/Main.html" />
         <option value="$PROJECT_DIR$/css/BodyHeaderDrawer.css" />
+        <option value="$PROJECT_DIR$/css/Splash.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/html/Splash.html" />
       </list>
     </option>
   </component>
@@ -175,20 +197,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tale_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tale_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -551,11 +559,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496835133968</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="0. 스플래시 - 나눔명조체로 폰트 변경&#10;1. 로그인 - 전체적으로 작게 변경, 엔터 후 로그인 되게 변경&#10;2. 회원가입 - 전체적으로 작게 변경.&#10;3. preview - 폰트 및 여백, 이미지 크기 수정.&#10;4. 지난이야기 - hover 시, underline생기게 변경">
+      <created>1497102744790</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1497102744790</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125923000" />
+    <option name="totallyTimeSpent" value="126635000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -624,7 +639,8 @@
     <MESSAGE value="0. 리스트페이지에서 페이징 오류나는 부분 해결&#10;1. html 네이밍 잘못된 부분 수정(list.html =&gt; List.html)" />
     <MESSAGE value="0. 글꼴 일부 적용." />
     <MESSAGE value="0. 페이징 중앙으로 제대로 적용안되는 부분 수정." />
-    <option name="LAST_COMMIT_MESSAGE" value="0. 페이징 중앙으로 제대로 적용안되는 부분 수정." />
+    <MESSAGE value="0. 스플래시 - 나눔명조체로 폰트 변경&#10;1. 로그인 - 전체적으로 작게 변경, 엔터 후 로그인 되게 변경&#10;2. 회원가입 - 전체적으로 작게 변경.&#10;3. preview - 폰트 및 여백, 이미지 크기 수정.&#10;4. 지난이야기 - hover 시, underline생기게 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="0. 스플래시 - 나눔명조체로 폰트 변경&#10;1. 로그인 - 전체적으로 작게 변경, 엔터 후 로그인 되게 변경&#10;2. 회원가입 - 전체적으로 작게 변경.&#10;3. preview - 폰트 및 여백, 이미지 크기 수정.&#10;4. 지난이야기 - hover 시, underline생기게 변경" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -679,6 +695,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="0" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -739,7 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html" />
     <entry file="file://$PROJECT_DIR$/404.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -897,13 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/Fonts.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/List.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="587">
@@ -916,20 +925,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html" />
     <entry file="file://$PROJECT_DIR$/public/404.html" />
-    <entry file="file://$PROJECT_DIR$/css/Splash.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/Splash.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="57" lean-forward="false" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/List.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -997,6 +992,38 @@
     <entry file="file://$PROJECT_DIR$/html/Download.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/Fonts.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/Splash.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/Splash.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
