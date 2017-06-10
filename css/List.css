@@ -1,7 +1,8 @@
 p{width:100%; height:100%;}
+body { overflow-x: hidden;}
 
 #header{z-index: 100;}
-#body{width:96%;  margin-left: 2%; margin-right: 2%;  z-index: 10; }
+#body{width:96%;  margin-left: 2%; margin-right: 2%;  z-index: 10;}
 #divNothing {width:80%; height:80%; margin: auto;  text-align: center; margin-top: 10%; display: none; }
 #imgNothing {margin: auto; width: 20%; height: auto;}
 #txtNothing {color: #FFFFFF; font-family: 'Nanum Myeongjo', serif; font-size: 40px; text-align: center; }
