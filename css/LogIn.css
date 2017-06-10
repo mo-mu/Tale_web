@@ -1,11 +1,11 @@
 html, body {width: 100%; height: 100%; margin: auto 0; background: #070E20;}
 p {color : #ffffff; font-size : 25px; font-family: 'Noto Sans', sans-serif;}
-input {width: 430px; height: 60px; border-radius: 30px; margin-bottom: 46px; font-family: 'Noto Sans', sans-serif; font-size: 20pt;}
+input {width: 430px; height: 60px; border-radius: 30px; font-family: 'Noto Sans', sans-serif; font-size: 20pt;}
 
-#btnLogin{background: #2bdaaf; border-color: #2bdaaf; width: 286px; height: 56px; font-size: 25pt; font-family: 'Noto Sans', sans-serif;
-    color: #FFFFFF;  border-radius: 30px; margin-bottom: 46px; font-family: SeoulNamsanCL; font-size: 20pt; cursor: pointer;}
+#btnLogin{background: #2bdaaf; border-color: #2bdaaf; width: 286px; height: 56px; font-size: 20pt; font-family: 'Noto Sans', sans-serif;
+    color: #FFFFFF;  border-radius: 30px; margin-bottom: 46px; cursor: pointer;  margin-top: 50px; }
 
-.edit_title{font-size: 17pt; text-align:left;margin-bottom: 16px; margin-top: 46px; margin-left: 20px;}
+.edit_title{font-size: 17pt; text-align:left;margin-bottom: 16px; margin-top: 30px; margin-left: 20px;}
 .edit{background: #070E20; border-color: #FFFFFF; color:#ffffff; padding-left: 30px;}
 .para{width: 100%; height: 100%; top:0; left:0; text-align:center; position:absolute;}
 .para  .context{display:inline-block;vertical-align:middle; text-align:center;}

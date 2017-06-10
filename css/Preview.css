@@ -1,20 +1,20 @@
 html, body {width: 100%; height: 100%; margin: auto 0; background: #070E20;}
-p {color : #ffffff; font-size : 25px; font-family: SeoulNamsanCL;}
-a {color : #2bdaaf; font-size : 25px; font-family: SeoulNamsanCL;}
+p {color : #ffffff; font-size : 20px; }
+a {color : #2bdaaf; font-size : 20px; font-family: 'Noto Sans', sans-serif;}
 
 
-#title{margin-bottom: 60px;}
+#title{margin-bottom: 80px;  font-family: 'Nanum Myeongjo', sans-serif;}
 #start_a{text-decoration: none;}
 #start{display:table; border-radius: 28px; width: 286px; height: 56px; text-align:center; vertical-align:middle; background: #2bdaaf; margin:0 auto;}
-#start_txt {display:table-cell; text-align:center; vertical-align:middle;}
-#member{display: inline; margin-right: 16px;}
-#sub{font-size : 18px;}
-#imgBox{margin: auto; width: 440px;}
-#img2{ display:inline-block; margin-left: 10px;}
+#start_txt {display:table-cell; text-align:center; vertical-align:middle; font-family: 'Noto Sans', sans-serif;}
+#member{display: inline; margin-right: 16px; font-family: 'Noto Sans', sans-serif;}
+#sub{font-size : 18px; font-family: 'Noto Sans', sans-serif;}
+#imgBox{margin: auto;}
+#img2{ display:inline-block; margin-left: 10px; }
 #img1{float:left;}
 
 .para{width: 100%; height: 100%; top:0; left:0; text-align:center; position:absolute; margin: auto;}
 .para  .context{display:inline-block;vertical-align:middle; text-align:center;}
 .para .blank{display:inline-block;width:0;height:100%;vertical-align:middle;}
-.para .context .member{margin-top:32px; margin-bottom: 68px;}
+.para .context .member{margin-top:50px; margin-bottom: 68px;}
 .para .context .another{}

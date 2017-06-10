@@ -14,8 +14,8 @@
         <p>로그인</p>
 
         <div>
-            <p class="edit_title">이메일</p> <input class="edit" type="email" id="email"><br>
-            <p class="edit_title">비밀번호</p> <input class="edit" type="password"  id="password"><br>
+            <div></div><p class="edit_title">이메일</p> <input class="edit" type="email" id="email"></div>
+            <div><p class="edit_title">비밀번호</p> <input class="edit" type="password"id="password" ></div>
             <button id="btnLogin" type="button">로그인</button>
         </div>
 
@@ -45,22 +45,46 @@
         firebase.initializeApp(config);
 
         const btnLogin = document.getElementById('btnLogin');
-        document.getElementById("btnLogin").addEventListener("click", function () {
-            var email = document.getElementById('email');
-            var password = document.getElementById('password');
-            firebase.auth().signInWithEmailAndPassword(email.value, password.value).then(
-                function () {
-                    location.href="Main.html"  // 페이지 이동...
-                }
-            ).catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                alert(errorCode + " : " + errorMessage);
-                // ...
-            });
+        document.getElementById("btnLogin").addEventListener("click",
 
+            function loginClicked () {
+                var email = document.getElementById('email');
+                var password = document.getElementById('password');
+                firebase.auth().signInWithEmailAndPassword(email.value, password.value).then(
+                    function () {
+                        location.href="Main.html"  // 페이지 이동...
+                    }
+                ).catch(function (error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    alert(errorCode + " : " + errorMessage);
+                    // ...
+                });
+
+            }
+        );
+        document.getElementById("password").addEventListener('keyup',function () {
+            if (window.event.keyCode == 13) {
+
+                var email = document.getElementById('email');
+                var password = document.getElementById('password');
+                console.log(email+"    "+password)
+                firebase.auth().signInWithEmailAndPassword(email.value, password.value).then(
+                    function () {
+                        location.href="Main.html"  // 페이지 이동...
+                    }
+                ).catch(function (error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    alert(errorCode + " : " + errorMessage);
+                    // ...
+                });
+
+            }
         });
+
     }
 </script>
 </body>

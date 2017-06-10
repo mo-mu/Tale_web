@@ -15,7 +15,7 @@
             <div>
                 <p class="edit_title">이메일</p> <input class="edit" type="email" id="email"><br>
                 <p class="edit_title">비밀번호</p> <input class="edit" type="password" id="password"><br>
-                <p class="edit_title">닉네임</p> <input class="edit" id="nickname" type="text"><br>
+                <p class="edit_title">닉네임</p> <input class="edit" id="nickname" type="text" onkeyup="if (window.event.keyCode == 13) {btSubmitclick()}"><br>
                 <button id="btnSubmit" onclick="btSubmitclick()" >회원가입</button>
             </div>
 
@@ -78,6 +78,8 @@
                 });
             };
         }
+
+       // document.getElementById("nickname").addEventListener('keyup',btSubmitclick())
 
     </script>
 </body>
