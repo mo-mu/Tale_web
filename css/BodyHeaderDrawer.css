@@ -1,5 +1,5 @@
-html {width: 100%; height: 100%; }
-body {width: 100%; height: 100%;  background: #070E20; z-index: 2;  overflow-x: hidden;}
+html {width: 100%; height: 98%; }
+body {width: 100%; height: 80%;  background: #070E20; z-index: 2;  overflow-x: hidden;}
 header{ height: 20%; margin-left: 20%; margin-right: 20%;}
 
 #btnMenu{margin-top: 78px; float: left; cursor: pointer; z-index: 10000;}

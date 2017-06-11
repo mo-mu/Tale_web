@@ -13,9 +13,9 @@ body { overflow-x: hidden;}
 
 #arrow{width: 22px; height: 22px;}
 #arrowHidden{width: 22px; height: 22px;visibility: hidden; }
-#txtQuestion{font-family: 'Nanum Myeongjo', serif; text-size: 25px;}
-#txtTime{font-family: 'Noto Sans', sans-serif; text-size:18px;}
-#txtAnswer{font-family: 'Noto Sans', sans-serif; text-size:20px;}
+#txtQuestion{font-family: 'Nanum Myeongjo', serif; font-size: 22px;}
+#txtTime{font-family: 'Noto Sans', sans-serif; font-size:15px;}
+#txtAnswer{font-family: 'Noto Sans', sans-serif; font-size:18px;}
 
 ul{text-align: left; list-style:none; padding-left:0px;  min-height:80%;}
 li {color: #FFFFFF; width:100%; text-align: left; margin-bottom: 50px; cursor: pointer;}
