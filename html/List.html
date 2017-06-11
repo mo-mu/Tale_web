@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/Fonts.css"/>
     <link rel="stylesheet" type="text/css" href="../css/Loading.css"/>
     <link rel="stylesheet" type="text/css" href="../css/BodyHeaderDrawer.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Logout.css">
 
 </head>
 <body onload="getDatas()">
@@ -20,7 +21,7 @@
 
         <a href="Main.html">글쓰기</a>
         <a href="#" onclick="return false">지난이야기</a>
-        <a href="#" onclick="logout()">로그아웃</a>
+        <a href="#" onclick="" id="btnLogout">로그아웃</a>
         <a href="Download.html">앱 다운로드</a>
     </div>
     <!-- // 네비게이션 드로어-->
@@ -57,6 +58,29 @@
         </div>
     </div>
 
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>잠깐!!</h2>
+            </div>
+            <div class="modal-body">
+                <p>로그아웃을 하시겠어요?</p>
+                <div id="btnDiv">
+
+                    <div id="logoutYes" onclick="logout()">네</div>
+                    <div id="logoutNo" >아니요</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+
+    </div>
 </body>
 
 
@@ -198,6 +222,19 @@
 
     }
 
+    function logout() {
+        firebase.auth().signOut().then(function () {
+
+            alert("로그아웃 되었습니다");
+            location.href="Preview.html"  // 페이지 이동
+            isLogined = false;
+            // Sign-out successful.
+        }, function (error) {
+
+            alert(error);
+        });
+    }
+
     function gotoDetail(curaId) {
         console.log(curaId);
         location.href="Detail.html?aId="+Number(curaId);
@@ -211,6 +248,43 @@
     /* Set the width of the side navigation to 0 */
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
-    }</script>
+    }
 
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("btnLogout");
+
+    var btnNo = document.getElementById("logoutNo");
+
+    var btnYes = document.getElementById("logoutYes");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    btnNo.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    btnYes.onclick = function () {
+        logout()
+    }
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 </html>

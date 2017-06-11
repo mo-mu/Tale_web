@@ -1,10 +1,10 @@
-p {color : #ffffff; font-size : 25px; font-family: 'Noto Sans', sans-serif;}
+p {}
 
 #header{z-index: 100;}
-#body{width:100%; margin: auto; padding: 20px; position: relative; text-align: center; z-index: 10; }
+#body{width:100%; margin: auto; padding: 20px; position: relative; text-align: center; z-index: 10; color : #ffffff; font-size : 25px; font-family: 'Noto Sans', sans-serif;}
 
 #title{margin-bottom: 60px;}
-#another{ margin: auto; display:inline-block;}
+#another{ margin: auto; display:inline-block; z-index: 1;}
 
-#img2{ display:inline-block; }
-#img1{float:left; margin: auto;}
+#img2{ display:inline-block;  z-index: 1;}
+#img1{float:left; margin: auto; z-index: 1;}

@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../css/Fonts.css"/>
     <link rel="stylesheet" type="text/css" href="../css/BodyHeaderDrawer.css"/>
     <link rel="stylesheet" type="text/css" href="../css/Download.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Logout.css">
 
 </head>
 <body>
@@ -15,7 +16,7 @@
 
     <a href="Main.html">글쓰기</a>
     <a href="List.html?group=1">지난이야기</a>
-    <a href="#" onclick="logout()">로그아웃</a>
+    <a href="#" onclick="" id="btnLogout">로그아웃</a>
     <a href="#" onclick="return false">앱 다운로드</a>
 </div>
 
@@ -40,12 +41,63 @@
     </div>
 
 </div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>잠깐!!</h2>
+        </div>
+        <div class="modal-body">
+            <p>로그아웃을 하시겠어요?</p>
+            <div id="btnDiv">
+
+                <div id="logoutYes" >네</div>
+                <div id="logoutNo" >아니요</div>
+            </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+
+</div>
 </body>
 
 
+
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
+    var config = {
+        apiKey: "AIzaSyColbhitRrtw649B0e3dv_FErFd98jX2Rs",
+        authDomain: "tale-97db4.firebaseapp.com",
+        databaseURL: "https://tale-97db4.firebaseio.com",
+        storageBucket: "tale-97db4.appspot.com",
+        messagingSenderId: "995377513212"
+    };
+    firebase.initializeApp(config);
 
+
+    function logout() {
+        firebase.auth().signOut().then(function () {
+
+            alert("로그아웃 되었습니다");
+            location.href="Preview.html"  // 페이지 이동
+            isLogined = false;
+            // Sign-out successful.
+        }, function (error) {
+
+            alert(error);
+        });
+    }
 
     /* Set the width of the side navigation to 250px */
     function openNav() {
@@ -55,6 +107,44 @@
     /* Set the width of the side navigation to 0 */
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
+    }
+
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("btnLogout");
+
+    var btnNo = document.getElementById("logoutNo");
+
+    var btnYes = document.getElementById("logoutYes");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    btnNo.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    btnYes.onclick = function () {
+        logout()
+    }
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
 </script>
 </html>
