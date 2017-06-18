@@ -3,12 +3,12 @@ header {z-index: 10000;}
 #question{margin-left: 30px;  font-size:22px;}
 #star {margin-left: 30px;}
 #insert{font-family: 'Noto Sans', sans-serif; font-size: 18px; color: #464646; margin-left: 30px; margin-right: 30px; margin-top: 30px; overflow-y: hidden; width: 90%; border: none;}
-#btnSave{margin-top: 84px; margin-right: 20px; float: right; cursor: pointer;  display: none;}
+#btnSave{margin-top: 42px; margin-right: 20px; float: right; cursor: pointer;  display: none;}
 #imgLogo{float: left; margin-left: 50px;}
-#changeQuestion{float: right; color: #FFFFFF; font-family: 'Noto Sans', sans-serif; font-size: 18px; margin-right: 50px; margin-top: 30px; display: none; }
-#context{background: #FFFFFF; width: 100%; height: auto; text-align:left; margin-top: 70px; }
-#body{margin-left: 2%; margin-right: 2%;  width: 96%;  display: none;}
-#blockModi{float: right;margin-top: 84px; margin-right: 20px; display: none;  }
+#changeQuestion{float: right; color: #FFFFFF; font-family: 'Noto Sans', sans-serif; font-size: 18px; display: none; z-index: 1000; margin-top: 80px;}
+#context{background: #FFFFFF; width: 100%; height: auto; text-align:left; margin-top: 50px; z-index: 20;}
+#body{margin-left: 2%; margin-right: 2%;  width: 96%;  display: none; z-index: 1;}
+#blockModi{float: right;margin-top: 42px; margin-right: 20px; display: none;}
 #btnModify{cursor:pointer;}
 #btnDelete{cursor:pointer; margin-left: 20px;}
 

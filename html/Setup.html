@@ -13,12 +13,14 @@
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" class="closebtn unimportant" onclick="closeNav()">&times;</a>
 
-        <a href="Main.html">글쓰기</a>
-        <a href="List.html?group=1">지난이야기</a>
-        <a href="#" onclick="return false">설정</a>
-        <a href="Download.html">앱 다운로드</a>
+        <a href="Main.html" onclick="" class="important">글쓰기</a>
+        <a href="List.html?group=1" class="important">지난 이야기</a>
+        <div style="background: #FFFFFF; height: 0.3px; "></div>
+        <a href="#"  onclick="return false" class="unimportant">설정</a>
+        <a href="#" onclick="" id="btnLogout" class="unimportant logout">로그아웃</a>
+        <a href="Download.html" class="unimportant">앱 다운로드</a>
     </div>
 
     <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->

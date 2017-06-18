@@ -3,5 +3,5 @@ p {color:white; font-family: SeoulNamsanCL;  font-size:25px;}
 #header{z-index: 100;}
 #body{width:100%; height:100%; margin: auto; padding: 20px; position: relative; text-align: center;  z-index: 10; }
 
-#title{float:left;}
-#content{float:right;}
+#title{float:left;  font-family: 'Noto Sans', sans-serif; }
+#content{float:right;  font-family: 'Noto Sans', sans-serif; }

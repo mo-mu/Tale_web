@@ -1,34 +1,48 @@
 html {width: 100%; height: 98%; }
-body {width: 100%; height: 80%;  background: #070E20; z-index: 2;  overflow-x: hidden;}
+body {width: 100%; height: 80%;  background: #070E20; z-index: 2;  overflow-x: hidden; margin: auto 0;}
 header{ height: 20%; margin-left: 20%; margin-right: 20%;}
 
-#btnMenu{margin-top: 78px; float: left; cursor: pointer; z-index: 10000;}
+#btnMenu{margin-top: 35px; float: left; cursor: pointer; z-index: 10000;}
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
+    z-index: 10000; /* Stay on top */
     left: 0;
-    background-color: #111; /* Black*/
+    background-color: rgba(1, 1, 1, .8); /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* The navigation menu links */
-.sidenav a {
+.sidenav .important {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav .unimportant {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
     color: #818181;
     display: block;
     transition: 0.3s
 }
 
+.sidenav .logout:hover {
+    color: #FF7E51;
+}
+
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
+    color: #2bdaaf;
 }
 
 /* Position and style the close button (top right corner) */
