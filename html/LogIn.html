@@ -48,19 +48,36 @@
         document.getElementById("btnLogin").addEventListener("click",
 
             function loginClicked () {
+
+
                 var email = document.getElementById('email');
                 var password = document.getElementById('password');
-                firebase.auth().signInWithEmailAndPassword(email.value, password.value).then(
-                    function () {
-                        location.href="Main.html"  // 페이지 이동...
-                    }
-                ).catch(function (error) {
-                    // Handle Errors here.
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    alert(errorCode + " : " + errorMessage);
-                    // ...
-                });
+
+                if(email.value.length>0 && password.value.length > 0) {
+                    firebase.auth().signInWithEmailAndPassword(email.value, password.value).then(
+                        function () {
+                            location.href="Main.html"  // 페이지 이동...
+                        }
+                    ).catch(function (error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        // ...
+
+                        switch(errorCode){
+                            case "auth/invalid-user-token":
+                                errorMessage = "다시 로그인을 하시기 바랍니다.";
+                                break;
+                            case "":
+                                break;
+
+                        }
+
+                        alert(errorMessage);
+                    });
+                } else {
+                    alert("항목을 채워주세요");
+                }
 
             }
         );

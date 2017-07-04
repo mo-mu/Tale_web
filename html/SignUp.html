@@ -55,33 +55,40 @@
             const auth = firebase.auth();
             // 3개 항목이 안써있을 때 치는 것 필요
 
-            if (editEmail.text.length=0)
-            auth.createUserWithEmailAndPassword(editEmail.value, editPassword.value).then(function () {
-                dataUpload(auth.currentUser.uid);
-            }).catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                switch(errorCode) {
-                    case "auth/email-already-in-use" :
-                        errorMessage = "이미 가입된 이메일입니다."
-                        break;
+            console.log( document.getElementById("email").value.length);
+            if (editEmail.value.length > 0 && editPassword.value.length > 0 && editNickname.value.length > 0) {
 
-                    case "auth/invalid-email":
-                        errorMessage = "유효한 이메일이 아닙니다."
-                        break;
+                auth.createUserWithEmailAndPassword(editEmail.value, editPassword.value).then(function () {
+                    dataUpload(auth.currentUser.uid);
+                }).catch(function (error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    switch(errorCode) {
+                        case "auth/email-already-in-use" :
+                            errorMessage = "이미 가입된 이메일입니다."
+                            break;
 
-                    case "auth/operation-not-allowed" :
-                        errorMessage = "운영자에게 메일을 보내주세요."
-                        break;
-                    case "auth/weak-password":
-                        errorMessage = "비밀번호가 너무 단순합니다. 좀 더 복잡한 비밀번호를 설정해 주세요."
-                        break;
-                }
+                        case "auth/invalid-email":
+                            errorMessage = "유효한 이메일이 아닙니다."
+                            break;
 
-                alert( errorMessage);
-                // ...
-            });
+                        case "auth/operation-not-allowed" :
+                            errorMessage = "운영자에게 메일을 보내주세요."
+                            break;
+                        case "auth/weak-password":
+                            errorMessage = "비밀번호가 너무 단순합니다. 좀 더 복잡한 비밀번호를 설정해 주세요."
+                            break;
+                    }
+
+                    alert(errorMessage);
+                    // ...
+                });
+
+            }else {
+                alert("항목을 채워주세요");
+            }
+
 
             function dataUpload(curUid) {
 
